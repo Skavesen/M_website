@@ -1,0 +1,14 @@
+ru
+Бондаренко Вадим Викторович
+Повышение эффективности протоколов передачи данных, использующих криптографическую защиту
+Программная инженерия
+
+ua
+Бондаренко Вадим Вікторович
+Підвищення ефективності протоколів передачі даних, що використовують криптографічний захист
+Програмна інженерія
+
+en
+Bondarenko Vadim Viktorovich
+Improving the efficiency of data transmission protocols using cryptographic protection
+Software Engineering

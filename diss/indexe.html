@@ -1,0 +1,464 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Summary - Bondarenko Vadim Viktorovich - Improving the efficiency of data transmission protocols using cryptographic protection</title>
+  <link rel="stylesheet" type="text/css" href="../css/master_style.css">
+</head>
+
+<body lang="ru">
+
+	<div id="topblock">
+		<div id="langbox">
+			<a href="indexu.html">UA</a> &nbsp; 
+			<a href="index.html">RU</a> 
+		</div>
+		<div id="donntu">
+			<a href="https://donntu.ru/" target=_blank>DonNTU</a> &nbsp; <a href="https://masters.donntu.ru/" target=_blank>Portal of Masters</a>
+		</div>
+	</div>
+
+	<div id="header">
+		<div id="photomag">
+			<a href="../bondarenko_big.jpg"><img src="../photo.jpg"  width=180 height=240	title="Master of DonNTU Bondarenko Vadim Viktorovich" alt="Master of DonNTU Bondarenko Vadim Viktorovich" border=0></a>
+		</div>
+		<div id="headertext">
+			<h1 class="hdr">Bondarenko Vadim Viktorovich</h1>
+			<h3 class="hdr">Faculty of Intelligent Systems and Programming</h3>
+			<h3 class="hdr">Department of Software Engineering named after L.P. Feldman</h3>
+			<h3 class="hdr">Specialization &laquo;Software development methods and tools&raquo;</h3>
+			<h2 class="hdr">Improving the efficiency of data transmission protocols using cryptographic protection</h2>
+			<h3 class="hdr">Scientific adviser: Ph.D., Professor Zori Sergey Anatolyevich (Consultant: Alla Viktorovna Chernyshova Ave.)</h3>
+		</div>
+	</div>
+
+	<div id="middleblock">
+		
+		<div id="menu">
+			<a class="button color" href="../indexe.html">Resume</a>
+			<a class="button color fix">Abstract</a>
+		</div>
+		
+		<div id="maintext">
+			
+			<h2>Abstract on the topic of the final work</h2>			
+			<h2>Content</h2>
+
+			<ul class=content>
+				<li class=ct1><a href="#p0">Introduction</a>
+
+<li class=ct1><a href="#p1">1. Analysis of existing data transmission protocols using cryptographic protection</a>
+<li class=ct2><a href="#p11">1.1 Cryptographic protocols SSL, TLS</a>
+<li class=ct2><a href="#p12">1.2 Tunnel protocol PPTP</a>
+<li class=ct2><a href="#p13">1.3 L2TP/IPsec Tunnel Protocol</a>
+<li class=ct2><a href="#p14">1.4 MTProto cryptographic protocol</a>
+<li class=ct2><a href="#p15">1.5 Conclusions on section</a>
+
+<li class=ct1><a href="#p2">2. Improving the efficiency of data transmission protocols using cryptographic protection</a>
+<li class=ct2><a href="#p21">2.1 Analysis of current trends in data transmission protocols with cryptographic protection</a>
+<li class=ct2><a href="#p22">2.2 Identification of shortcomings and vulnerabilities of existing security algorithms in data transmission networks</a>
+<li class=ct2><a href="#p23">2.3 Search for possible ways to eliminate the shortcomings found in the algorithms of data transmission protocols (application level)</a>
+<li class=ct2><a href="#p24">2.4 Formation of requirements for the data transmission protocol with cryptographic protection</a>
+<li class=ct2><a href="#p25">2.5 Conclusions on section</a>
+
+<li class=ct1><a href="#p3">3. Theoretical description of the cryptographic algorithms used in the protocol</a>
+<li class=ct2><a href="#p31">3.1 Symmetric AES encryption algorithm</a>
+<li class=ct2><a href="#p32">3.2 Asymmetric RSA encryption algorithm</a>
+<li class=ct2><a href="#p33">3.3 MD5 hashing function</a>
+<li class=ct2><a href="#p34">3.4 Asymmetric encryption algorithm for RSA EDS.</a>
+
+<li class=ct1><a href="#p5">Conclusions</a>
+
+<li class=ct1><a href="#ref">List of sources</a>
+</ul>
+
+<a name=p0></a>
+<h2>Introduction</h2>
+
+<p>Information protection during data transmission in computer networks is one of the most important tasks in the modern world. Inside the local network, data can be reliably protected, but when data is transferred outside the local network, when using the Internet, the probability of leaks increases.
+Very often, the use of insufficiently effective means of protection causes the loss of personal data of citizens, their bank card numbers, information having the nature of a trade secret. [<a href="#ref1">1</a>].
+Therefore, the study of existing secure data transfer protocols that use cryptographic algorithms is very relevant. To date, there are information security protocols operating at different levels in relation to the levels of the TCP/IP protocol stack and the OSI model.
+To talk about designing your own secure data transfer protocol, let's first consider the existing protocols, the most popular protocols for secure data transfer with cryptographic protection. We will review and briefly analyze these protocols.
+</p>
+
+<a name=p1></a>
+<h2>1. Analysis of existing data transmission protocols using cryptographic protection</h2>
+
+<a name=p11></a>
+<h3>1.1 Cryptographic protocols SSL, TLS</h3>
+<p>SSL and TLS protocols are used as secure channel protocols operating at the representative and session levels of the OSI model. These protocols use cryptographic methods of information protection to ensure the security of the transmitted data.</p>
+<p>The SSL and TLS protocols perform the functions of creating a secure channel between two network nodes, including their mutual authentication, and also ensure the confidentiality, integrity and authenticity of the transmitted data. SSL and TLS protocols use asymmetric and symmetric encryption technology.</p>
+<p>Confidentiality is ensured by encrypting the transmitted messages using symmetric session keys, which the parties exchange when establishing a connection. Session keys are encrypted using public keys extracted from subscriber certificates. The use of symmetric keys to protect messages is due to the fact that the speed of encryption and decryption processes based on the symmetric algorithm key is significantly higher. The authenticity and integrity of the circulating information is ensured by the formation and verification of an electronic digital signature [<a href="#ref2">2</a>].</p>
+<p>The RSA and Diffie-Hellman algorithms are used as asymmetric encryption algorithms. Valid symmetric encryption algorithms are RC2, RC4, DES, 3DES and AES. MD5 and SHA-1 standards can be used to calculate hash functions. In the SSL protocol version 3.0, the set of cryptographic algorithms is extensible.</p>
+<p>According to the SSL protocol, cryptographically secure tunnels are created between the endpoints of the virtual network. The initiators of each protected tunnel are the client and the server at the tunnel endpoints.</p>
+<div class=img>
+<img src='images/1.jpg' >
+<p class=imgcaption>Picture 1 - Cryptographic tunnels formed on the basis of the SSL protocol</p>
+</div>
+<p>SSL and TLS protocols are designed to solve traditional tasks of ensuring the protection of information interaction, which in the client-server environment are interpreted as follows:</p>
+<ol>
+<li>the user and the server must be mutually confident that they are exchanging information not with fake subscribers, but with those subscribers who are needed, not limited to password protection;
+<li>after establishing a connection between the server and the client, the entire information flow between them must be protected from unauthorized access;
+<li>when exchanging information, the parties must be sure that there are no accidental or intentional distortions in its transmission.
+</ol>
+<p>The principle of operation of the SSL and TLS protocols is as follows: an encrypted channel is installed on top of the TCP/IP protocol, inside which data is transmitted via the application protocol — HTTP, FTP, SMTP, POP3, IMAP, and so on.</p>
+<div class=img>
+<img src='images/2.jpg' >
+<p class=imgcaption>Picture 2 – Graphical representation of the principle of operation</p>
+</div>
+<p>SSL and TLS protocols allow the server and the client to authenticate each other before starting information interaction, agree on an encryption algorithm and form common cryptographic keys.</p>
+<p>The integrity and authentication of the message is ensured by the use of an electronic digital signature. </p>
+<p>SSL and TLS protocols are supported by server and client software produced by leading Western companies. A significant disadvantage of SSL and TLS protocols is that almost all products that support these protocols due to export restrictions are available outside the United States only in a truncated version (with a session key length of 40 bits for symmetric encryption algorithms and 512 bits for the RSA algorithm used at the SSL session establishment stage).</p>
+<p>The disadvantages of SSL and TLS protocols include the fact that they use only one network layer protocol — IP to transport their messages, and, therefore, can only work in IP networks.</p>
+In addition, the SSL and TLS protocols use the same keys for authentication and encryption, which under certain conditions can lead to a potential vulnerability. Such a solution makes it possible to collect more statistical material than with authentication and encryption with different keys.</p>
+
+<a name=p12></a>
+<h3>1.2 The PPTP Tunnel Protocol</h3>
+<p>PPTP (point-to-point tunneling protocol) is a protocol for a point–to-point VPN connection that creates a secure tunnel between a server and a certain device over another network, for example, the Internet.</p>
+<p>Of all VPN protocols, PPTP is one of the most common, the easiest to conPicture and the fastest working protocols. For this reason, PPTP is especially often used in applications where speed is of paramount importance, for example, for streaming audio or video, as well as on older and slower devices with more limited processors [<a href="#ref3">3</a>].</p>
+<p>At the same time, serious vulnerabilities have been discovered in the PPTP protocol. Its basic authentication protocols, usually MS-CHAP-v1/v2, are completely unreliable and have been hacked repeatedly during security analysis since its introduction. Therefore, PPTP is not recommended, except in cases where security is absolutely insignificant.</p>
+
+<a name=p13></a>
+<h3>1.3 L2TP/IPsec Tunnel Protocol</h3>
+<p>L2TP is a tunneling protocol that is an extension of the PPP protocol and combines the best features of the other two tunneling protocols PPTP and L2F. The L2TP protocol, although used for VPN connections, cannot provide confidentiality or authentication by itself, so it is often used together with the IPsec protocol, which provides secure connections. The combination of these two protocols is known as L2TP/IPsec.</p>
+<p>L2TP/IPsec encapsulates data twice, which can slow down the connection speed. However, the L2TP/IPsec protocol provides the encryption and decryption process inside the kernel and supports multithreading, unlike the OpenVPN protocol. Considering this fact, theoretically the L2TP/IPsec speed can be faster than OpenVPN.</p>
+<p>L2TP/IPsec is as easy and fast to set up as PPTP, but it is more secure due to a slightly lower connection speed. However, since the L2TP protocol uses UDP port 500, there is a possibility that the VPN connection may be detected and blocked by some firewalls.</p><p>Стек протоколов IPsec (Internet Protocol Security) применяется для аутентификации участников обмена, туннелирования трафика и шифрования IP-пакетов.</p>
+         
+<p>The main task of IPsec protocols is to ensure secure data transmission over IP networks. The use of IPsec provides:</p>
+            <ol>
+				<li>authentication - proof of sending packets by your interaction partner, that is, the owner of the shared secret;
+                <li>integrity - inability to change the data in the package;
+				<li>confidentiality - inability to disclose the transmitted data;
+				<li>reliable key management - the IKE protocol calculates a shared secret known only to the recipient and sender of the packet;
+				<li>tunneling - complete masking of the topology of the enterprise's local network [<a href="#ref4">4</a>].
+			</ol>
+            <div class=img>
+				<img src='images/3.jpg' >
+				<p class=imgcaption>Picture 3 – Architecture of the IPsec protocol stack</p>
+			</div>
+            <p>The AH protocol is an optional header and is located between the main IP packet header and the data field. AH is responsible for ensuring data integrity and authentication.</p>
+            <p>The ESP protocol is capable of encrypting data, and is also capable of performing the functions of the AH protocol.</p>
+            <p>IKE is a key exchange protocol.</p>
+
+			<a name=p14></a>
+			<h3>1.4 MTProto Cryptographic Protocol</h3>
+<p>MTProto is a cryptographic protocol used in the Telegram messaging system to encrypt user correspondence. The protocol is based on an original combination of the symmetric AES encryption algorithm (in IGE mode), the Diffie-Hellman protocol for exchanging 2048-bit RSA keys between two devices and a number of hash functions. The protocol allows the use of end-to-end encryption with optional key reconciliation.</p>
+            <p>MTProto Proxy is a protocol of the MTProto family, solves several problems at once:</p>
+            <ol>
+				<li>to connect instead of a login + password pair, just a password is enough;
+                <li>traffic does not differ from regular HTTPS/TLS;
+				<li>the password is not transmitted to the server when connecting;
+				<li>traffic is encrypted;
+				<li>it is possible to work through a proxy only Telegram.
+			</ol>
+            <p>However, research shows that Telegram had serious and, at the same time, simple problems in the protocol (for example, a modified and vulnerable key exchange algorithm using the Diffie-Hellman algorithm), which can be detected by any knowledgeable security expert.</p>
+            <p>Using the command line, it is possible to connect to some users and detect communication intervals. This is a serious problem related to the leakage of personal information [<a href="#ref5">5</a>].</p>
+                      
+			<a name=p15></a>
+			<h3>1.5 Conclusions on section </h3> <p></p>
+            <p>Such protocols as SSL, TLS, PPTP, IPsec, L2TP, MTProto were considered. Each of the protocols has its pros and cons. Below is a table with a comparison of protocols by such criteria: OSI model level, cryptographic algorithms, popularity.</p>
+            <p>Table 1. Comparative analysis of protocols with cryptographic protection</p>
+			<table border="1"><tr><td><p><b> </b></p>
+            </td>
+            <td><p>OSI level</p>
+            </td>
+            <td><p>Cryptographic algorithms</p>
+            </td>
+            <td><p>Popularity</p>
+            </td>
+            </tr>
+            <tr><td><p>SSL/TLS</p>
+            </td>
+            <td><p>Views, session</p>
+            </td>
+            <td><p>AES, Diffie-Hellma, RSA, DSA, MD5, SHA, RC4, IDEA, Triple DES.</p>
+            </td>
+            <td><p>The most popular protocol for web resources.</p>
+            </td>
+            </tr>
+            <tr><td><p>PPTP</p>
+            </td>
+            <td><p>Session</p>
+            </td>
+            <td><p>DES, MD4, RC4.</p>
+            </td>
+            <td><p>It is not popular because it is not safe.</p>
+            </td>
+            </tr>
+            <tr><td><p>IPsec</p>
+            </td>
+            <td><p>Network</p>
+            </td>
+            <td><p>AES, Triple DES, MD5, SHA.</p>
+            </td>
+            <td><p>The most popular protocol for VPN tunneling.</p>
+            </td>
+            </tr>
+            <tr><td><p>L2TP</p>
+            </td>
+            <td><p>Session</p>
+            </td>
+            <td><p>IPsec handles cryptographic protection.</p>
+            </td>
+            <td><p>It is often used in conjunction with IPsec for VPN tunneling.</p>
+            </td>
+            </tr>
+            <tr><td><p>MTProto</p>
+            </td>
+            <td><p>Applied</p>
+            </td>
+            <td><p>AES, Diffie-Hellma, RSA.</p>
+            </td>
+            <td><p>Used only in Telegram.</p>
+            </td>
+            </tr>
+            </table>
+
+            <p>In the process of studying protocols with cryptographic protection, it was decided to design and implement its own protocol using cryptographic protection, in which there will be no obvious shortcomings that were described above. The protocol is supposed to implement the following features:</p>
+            <ol>
+				<li>only certain encryption methods will be used, both symmetric and asymmetric;
+				<li>the hash of the message will be received via SHA384;
+				<li>changing keys during the session;
+				<li>more frequent certificate updates;
+				<li>use for application protocols of information exchange, including those developed for new client-server applications.
+			</ol>
+
+			<a name='p2'></a>
+			<h2>2. Improving the efficiency of data transmission protocols using cryptographic protection</h2>
+
+			<a name=p21></a>
+			<h3>2.1 Analysis of current trends in the field of data transmission protocols with cryptographic protection</h3>
+
+            <p>Recently, many employees had to switch to the remote activity format, and many employers recommended that their employees use a VPN for secure access to internal corporate services.</p>
+            A VPN is a set of technologies that allow you to create a logical structure on the surface of a physical one. It is used to ensure the security of traffic from being intercepted by a criminal and to protect the actions of ordinary users on the Internet.</p>
+            <p>VPN is necessary to organize remote work. Working from home, using a VPN service, it is possible to get online access to the documentation and services of a company or organization, while the connection will be much more secure, the data will not be easy to intercept and decrypt.</p>
+            A VPN is also necessary to combine different offices of the same company. Offices can be separated from each other by a long distance.</p>
+            <p>When connecting to Wi-Fi in cafes, metro stations, etc., so that attackers cannot steal the user's personal data, you can also use the VPN service. When using a public network, using a VPN service makes working with websites relatively secure.</p>
+            <p>The use of social networks in public Wi-fi zones without a VPN service can lead not only to the interception of confidential information, but also in the future there is a threat of using these accounts for their own purposes by going through the authentication procedure on behalf of the user. The loss of information for access to mail services, with unsecured authentication on mail servers, will lead to even more serious consequences, since other web application accounts, including services used in enterprises, institutions, firms, as well as social network profiles and other mail accounts can be linked to mail accounts. accounts. Then all applications associated with this mailbox can be attacked. But the most unpleasant thing may be the leakage of bank card data if the user decided to transfer money to someone by connecting to public Wi-Fi.</p>
+            A VPN can also be used to ensure the anonymity of the user when working on the Internet. When using a VPN, it is difficult to determine which sites the user visits, which browser he uses, where he is located geographically, etc. The need to hide his location may be required when traveling using various Internet applications.  </p>
+            <p>Let's consider the principle of VPN operation.</p>
+
+            A VPN connection is, one might say, a "tunnel" between a user and a server. Each node encodes the data before it enters the "tunnel".</p>
+            <p>After connecting to the VPN, the system identifies the network and begins recognition (compares the entered password with the password in its database).</p>
+            <p>Next, the server authorizes the user, that is, provides the right to perform the set actions: reading Internet mail, surfing the Internet, etc. After the connection is formed, all traffic is transmitted between the user's computer and the server in encrypted form. The user's computer has an IP address issued by the Internet provider. The VPN server changes the IP address of the user's computer to its own. And already from the VPN server, all information is transmitted to external resources requested by the user. It is now possible to access resources in a relatively reliable way. </p>
+            <div class=img>
+				<img src='images/4.jpg' >
+				<p class=imgcaption>Picture 4 – How VPN works</p>
+			</div>
+            <p>However, it should be borne in mind that not all information is encrypted. Different VPN providers may have different characteristics, for example, the degree of encryption, storing logs (a log that stores information about visited sites, hiding the fact of connecting to the server, a real IP address, etc.) and cooperation in issuing information to third parties.</p>
+            <p>If the VPN provider does not record logs at all, then there is simply nothing to transfer to third parties. And hiding the fact of connecting to the server is already a rare service. If the connection is set up incorrectly or the connection is suddenly disconnected, a part of the data may leak. Multihop VPN technology will help solve the problem, which involves connecting to the site through several servers at once.</p>
+            <p>Consider the popular VPN protocols.</p>
+            <p>PPTP – Point-to-Point Tunneling Protocol [<a href="#ref2">2</a>], uses two connections – one for management, the other for data encapsulation, is supported by all operating systems, does not require a lot of computing power, but has poor security. The encryption methods used for this protocol are outdated, there are errors in the implementation of the protocol from Microsoft. There is no encryption by default, it takes less than a day to crack. The protocol is considered less secure than IPsec. It is used when data protection is not very important or when there are no other options.</p>
+            <p>PPTP was analyzed from the point of view of security. Vulnerabilities were discovered in the protocol related to the PPP authentication protocol used, the MPPE protocol and the integration between the MPPE and PPP authentications for setting the session key. PPTP Vulnerabilities:</p>
+			<ol>
+				<li>MSCHAP-v1 is unreliable;
+				<li>MSCHAP-v2 is vulnerable to dictionary attack;
+				<li>when using MSCHAP-v1, MPPE uses the same RC4 session key to encrypt the information flow in both directions;
+				<li>MPPE uses RC4 stream for encryption. There is no method for authenticating a digital stream and therefore this stream is vulnerable to an attack that does bit tampering. [<a href="#ref3">3</a>]
+			</ol>
+            <p>L2TP – Layer 2 Tunneling Protocol - The L2TP protocol extends the PPP model, allowing the placement of L2 and PPP terminal points in various physical devices connected to a packet-switched network [<a href="#ref3">3</a>]. The protocol in question is more efficient for building virtual networks, but is more demanding on computing resources, and does not include encryption as standard. It works together with other protocols, most often with IPsec. It is used by Internet service providers and users for corporate purposes.</p>
+            <p>IPsec – Internet Protocol Security [<a href="#ref5">5</a>] - a number of protocols and standards for secure connections. The advantages of IPsec are good architecture and reliability of algorithms. The disadvantages of IPsec are the complexity of configuration, which leads to a decrease in security in case of incorrect configuration; this requires a large number of computing capabilities, but this disadvantage is compensated by hardware acceleration of the AES encryption algorithm. It is often used in combination with other methods.</p>
+            <p>SSL – Secure Sockets Layer & TLS – Transport Layer Security is a group of methods that includes TLS, SSL and other security tools. The advantage of the protocol is that it is freely transmitted by most public networks. The disadvantage of the protocol is rather low performance, complexity in configuration and the need to install additional software. The SSL protocol is used on websites whose URLs start with https.</p>
+            <p>Some VPN implementations: OpenVPN [<a href="#ref6">6</a>], Microsoft SSTP [<a href="#ref7">7</a>]. OpenVPN has an open source code, is implemented for almost every platform and is quite secure. It performs the function of a secure tunnel for broadcasting information through a single TCP/UDP port. The main advantage of OpenVPN is the ease of installation and configuration, which is a rare case for such tools. OpenVPN connects the client/server architecture. It should be installed on all nodes of the VPN network, where one node should be a server and the others should be clients. VPN gateways combine the same key to decrypt and encrypt information when placing static keys. In this case, changing the setting will be simple, but at the same time it will be difficult to transfer and secure the key. If someone gets hold of this key, they will be able to decode the data.</p>
+            <p>In order to avoid this, you should use a public key infrastructure (PKI). At the same time, each node manages two keys: a private key accessible only to its owner and a public key known to everyone. This subsystem is used by OpenSSL connected to OpenVPN to authenticate VPN nodes before transmitting encoded data.</p>
+            <p>Microsoft SSTP – Secure Socket Tunneling Protocol SCTP is by definition an application layer protocol. It is designed for synchronous data exchange between two programs and allows multiple application endpoints to be used over a single network connection between peers. This allows you to effectively use the communication resources available on the network.</p>
+            <p>The SSTP protocol is based on SSL instead of PPTP or IPsec and uses TCP port 443 (or others, as implemented in Ideco UTM) to relay SSTP traffic. Although it is closely related to SSL, a direct comparison between SSL and SMTP is not possible because, unlike SSL, SSTP is just a tunneling protocol. There are many reasons to choose SSL rather than IPsec as the basis for SSTP. IPsec is aimed at supporting VPN connections, so SSL has become the best basis for developing STP, since it supports roaming.</p>
+
+            <a name=p22></a>
+			<h3>2.2 Identification of shortcomings and vulnerabilities of existing security algorithms in data transmission networks</h3>
+
+<p>The protected properties of protocols can be declared when they are declared by the authors of the protocol themselves (and, as a rule, entail all sorts of arguments in the usefulness of implementing these functions), and it is implied when the authors of any structure expect to develop protected properties by some protocol.</p>
+            An attack on a protected protocol is an attempt to analyze protocol messages and/or perform actions not provided for by the protocol in order to destroy the presented or conditioned properties of the protocol.</p>
+            <p>An attack is considered successful if at least one of the presented or implied properties of the protocol is violated.</p>
+            <p>In the case of a successful attack on conditional properties, we will clarify that this is a successful attack on the application of the protocol in any subsystem. This will explain, of course, not about the shortcomings of the protocol itself, but about the wrong choice of protocol (settings) by the system compilers.</p>
+            <p>There are a huge number of attacks on protocols. Many attacks have common criteria, which makes it possible to use attack classes to facilitate monitoring and develop protocols that are more resistant to a large number of attack classes.</p>
+            <p>MitM "Attack in the middle" [<a href="#ref9">9</a>] (man-in-the-middle attack). A class of attacks in which a criminal repeats and substitutes the text of messages passing between two or more protocol users, and users do not realize that the correspondence is "tapped" considering that they communicate personally with each other without the participation of a third party. Protocols that do not perform mutual authentication of the parties are defenseless for this attack (target G1). A traditional example of an attack of this class is an attack on the Diffie–Hellman protocol.</p>
+            <p>Repeat attack with retransmission [<a href="#ref9">9</a>]. A class of attacks in which a criminal captures all the emails that take place in one session of the protocol, and then duplicates them in a new one, under the guise of one of the participants in the first session. Illustrative examples of protocols to which this attack is applicable are the Wu-Lan protocols and the Shamir keyless protocol.</p>
+            <p>TF type substitution attack [<a href="#ref9">9</a>]. A class of attacks in which an attacker, using a message transmitted in a local protocol session, creates a unique one by transmitting it on another round of the protocol under the image of a message of a different type (for a different purpose). For example, the Wide-Mouth Frog, Denning—Sako, Yahalom and Otway—Riis protocols are vulnerable to such attacks.</p>
+            <p>PS A parallel session attack [<a href="#ref10">10</a>] is an attack in which a criminal initiates a number of parallel protocol sessions in order to use messages from one session to another. A good example of a protocol susceptible to this class of attacks is the Needham—Schroeder symmetric variant.</p>
+            <p>An STS attack with a known one–time key [<a href="#ref10">10</a>] is an attack on the retransmission protocol organized on the knowledge of a one-time secret key.</p>
+            <p>KN attack using a known session key. [<a href="#ref10">10</a>]</p>
+            <p>Classes of attacks in which an attacker gains access to temporary secret keys used in protocols (for example, to actual session keys), after which he can guarantee, for example, authentication or at least the establishment of a session on behalf of one of the parties to the protocol.</p>
+            <p>A UKS attack with an unknown session key [<a href="#ref10">10</a>] is an attack consisting of an attempt to obtain information about a long–term key or any other key information that allows you to create session keys for other sessions of the protocol again.</p>
+            <p>A class of attacks on key authentication protocols in which an attacker gets the opportunity to prove to one of the parties that he owns the key (for example, by repeating a message from a legitimate session), although he did not know the key itself. For example, the Needham-Schroeder symmetric protocol is vulnerable to this class of attacks.</p>
+            <p>It should be emphasized that, unless otherwise indicated, when analyzing a cryptographic protocol (not specific systems), the assumption of the durability of all cryptographic primitives used is used. For example, it is assumed that, although there is a secure exchange of information using a session key developed in the session of some cryptographic protocol, an attacker will not have enough resources and time to obtain this session key by attacking the ciphers used or cryptographically stable hash functions.</p>
+            <p>On the other hand, it should be assumed that the session keys obtained within the protocol sessions will be received by the criminal after some time (however, much longer than the time of the communication session itself) (STS and KN attack classes). And after a much longer time, the criminal will be able to access the "master keys" - keys of long—term use, so protocols should be developed with the generation of session keys, including with the G9/PFS property.</p>
+
+			<a name=p23></a>
+			<h3>2.3 Search for possible ways to eliminate the shortcomings found in the algorithms of data transmission protocols (application level)</h3>
+            
+            <p>One of the first public key assignment algorithms was proposed by Hellman M. E. and Diffie W. in 1976. [<a href="#ref11">11</a>] To implement it, the participants must agree on a large value of the prime number p and the conditional component α of the multiplicative group Z * p = = {1, 2, . . . , p − 1}. To generate a common key k, they must form some numbers x, 1 ≤ x ≤ p − 2 and y, 1 ≤ y 6 ≤ − 2, respectively. After that, they can start communicating through a message. DH Protocol:</p>
+            <div class=img>
+				<img src='images/5.jpg' >
+				<p class=imgcaption>Picture 5 – Example of messaging</p>
+			</div>
+            <p>The required shared key is now calculated using the formula</p>
+            <div class=img>
+				<img src='images/6.jpg' >
+				<p class=imgcaption>Picture 6 – The required shared key</p>
+			</div>
+            <p>Weakness: lack of authentication of the parties.
+                The MTI protocol. An interesting approach to protecting the DH protocol from an "enemy in the middle" attack was proposed by T. Matsumoto, I. Takashima and H. Imai (Matsumoto T., Takashima Y., Imai H.) in 1986 They proposed a series of protocols that assume that subscribers have public keys and use various modifications of the procedure for generating a common key.
+                </p>
+            <p>Consider the MTI/A0 protocol. Suppose that participants A and B have secret keys a, 1 ≤ a ≤ p − 2, and b, 1 ≤ b ≤ p − 2, respectively, and publish their public keys βA = α a mod p and βB = α b mod p. To generate a shared secret key k, they must generate random numbers x, 1 ≤ x ≤ p−2, and y, 1 ≤ y ≤ p−2, respectively, and then exchange the following messages:</p>
+            <div class=img>
+				<img src='images/7.jpg' >
+				<p class=imgcaption>Picture 7 – Example of messaging</p>
+			</div>
+            <p>Now participants A and B calculate the common key k = α^(xb+ya) mod p by formulas.</p>
+            <div class=img>
+				<img src='images/8.jpg' >
+				<p class=imgcaption>Picture 8 – Calculation of the shared key</p>
+			</div>
+            <p>Any substitution of messages leads to the fact that all parties receive different key values, as a result of which it becomes impossible to read all the transmitted information. Thus, the authentication property of the protocol key is not violated during the "enemy in the middle" attack. However, this protocol does not provide authentication of the parties and confirmation of the correctness of obtaining the key.</p>
+            <p>STS protocol. An attempt to build an authenticated protocol based on DH was made in the STS (station-to-station) protocol created by W. Diffie, P. Van Oorschot, and M. By M. Wiener in 1992.</p>
+            <div class=img>
+				<img src='images/9.jpg' >
+				<p class=imgcaption>Picture 9 – Example of messaging</p>
+			</div>
+            <p>Here sIgA and SigB are digital signatures of users A and B, respectively, k = α xy mod p is the desired shared key.</p>
+            <p>Inserting the values of digital signatures into the second and third messages of the protocol allows you to guarantee the authenticity of receiving a message from exactly the user from whom this message was received. </p>
+            <p>Encryption of user signature values using the symmetric algorithm E was introduced in order to provide mutual confirmation of the correctness of the calculation of the key value, since with an incorrectly calculated key it is impossible to obtain the correct values of digital signatures.</p>
+            <p>Modified STS protocol. In 2004, K. Boyd and A. Matura proposed the following modification of the STS protocol: </p>
+            <div class=img>
+				<img src='images/10.jpg' >
+				<p class=imgcaption>Picture 10 – Example of STS protocol messaging</p>
+			</div>
+            <p>where k0 = f(k) is the key parameter of the hash function, calculated as the value of some function from the resulting session key k = α xy mod p. </p>
+            <p>Attack: for this version of the protocol, you can use a two-way attack with an unknown shared key (bilateral unknown key-share attack, BUKS attack): </p>
+            <div class=img>
+				<img src='images/11.jpg' >
+				<p class=imgcaption>Picture 11 – Attack algorithm</p>
+			</div>
+            <p>Violator C, using his legitimate exchange with participant B, can use an attack against participant A, as a result of which he can convince A that he is acting on behalf of B. Violator C uses his legitimate exchange with participant B and convinces A that he is acting on behalf of B. The session with participant B remains incomplete, since C, not knowing the secret key of participant A, will not be able to find the correct answer for B. Therefore, any of his messages in the third step will be rejected by participant B. </p>
+            <p>This attack does not pose a real danger, since the intruder will not know the secret key k = α xy mod p and therefore will not be able to read the transmitted messages transmitted from A to B. However, as a result, participant A will not suspect anything and will take participant C for B.</p>
+            To increase security, you can extend the protocol by using two-factor authentication when entering a user password and when entering an identity unlock key, for example, by sending a confirmation code to an e-mail address. And also by introducing rules into the client's implementation that do not allow generating a simple password. At the same time, e-mail addresses for authentication on the resource can be stored on the resource server and set when registering on a specific resource. And the e-mail used to unlock the identity can be stored in encrypted form together with the unlock code to exclude the possibility of substitution of the e-mail address to the attacker's address. In this case, the e-mail required to activate the identity unlock code can be set at the first launch of the application. Both types of e-mail addresses can be changed upon activation of the identity unlock code. [<a href="#ref12">12</a>]</p>
+            <p>You can also generate a QR code, the hash of which will be encrypted and transmitted to a user who will have a key on another device to decrypt the image, and from this image a key will be generated to encrypt information between two users. [<a href="#ref13">13</a>] </p>
+
+			<a name=p24></a>
+			<h3>2.4 Formation of requirements for a data transmission protocol with cryptographic protection</h3>
+            
+            <p>There are quite a large number of different types of attacks that depend on the specific implementation of the protocol.</p>
+            <p>For example, for a cryptographic protocol based on symmetric encryption systems, you can use the features of the encryption systems themselves and, in particular, the implemented methods and modes of encryption, synchronization, etc.</p>
+            <p>To protect against such attacks, it is necessary to analyze the architecture of the protocol and the structure of the transmitted messages to identify possible vulnerabilities that allow messages with known or identical values of certain fields to be imposed, or by substituting the type of different fields. For cryptographic protocols organized on the basis of asymmetric encryption systems, the disadvantage is the replacement of the public key of one of the partners with another public key, while the secret half of this key is known to the enemy. In particular, it allows the opponent to find out the contents of encrypted messages sent to this participant. In this case, the connectivity property of the public key and the participant ID is violated. Therefore, an attack of this type is called a binding attack. To protect against such attacks, their certificates are used instead of public keys, making an individual mechanism (PKI) for issuing, revoking and verifying their correctness.</p>
+            <p>Having analyzed the security features in existing protocols with cryptographic protection, having discovered the advantages and disadvantages of the protocols considered and their vulnerability to attacks of a certain type, it is possible to form some general requirements for data transmission protocols with cryptographic protection operating at the application level:</p>
+            <ol>
+				<li>using secure user authentication based on two-factor authentication using cryptographic algorithms;
+				<li>using symmetric cryptographic algorithms with a large key size for each session of interaction between client and server, client and client (when two clients interact directly without the participation of the server, if the protocol provides for such interaction);
+				<li>using one-time symmetric algorithm keys to encrypt sessions between exchange participants;
+				<li>using public key algorithms to protect the key of a symmetric encryption algorithm;
+				<li>generation of different key pairs of an asymmetric encryption algorithm for the participants of the interaction, while the keys must not be of a minimum size;
+                <li>ensuring the integrity control of transmitted data using an electronic digital signature;
+				<li>use of additional security features that provide a more reliable key exchange (tokens, QR codes);
+				<li>the possibility of using an "arbiter" when generating keys to verify data integrity; 
+                <li>the possibility of using the protocol being developed with cryptographic protection over the operation of standard information exchange protocols and the use of such a protocol in client-server applications.
+			</ol>
+            <p>Having described the general requirements for the protocol, in the future it is possible to proceed to the development of an application-level protocol architecture with cryptographic protection. At the same time, when designing the protocol architecture, it should be possible to increase the effectiveness of the protection of the transmitted information, both at the authentication stage and at the data transfer stage, and also provide for monitoring the integrity of the transmitted protected data. </p>
+            
+
+			<a name=p25></a>
+			<h3>2.5 Conclusions on section</h3>
+            
+            <p>The section provides an analysis of current trends in the field of data transmission protocols with cryptographic protection. VPN technology is considered as one of the options for secure data transmission on the network using cryptographic protection, its popular protocols are described, the advantages and disadvantages of popular protocols are highlighted.</p>
+            <p>The protocols were also analyzed in terms of their vulnerability to attacks of a certain type.</p>
+            <p>The search for possible ways to eliminate the shortcomings found in the algorithms of data transmission protocols at the application level is described.</p>
+            <p>The article presents possible requirements for the author's data transmission protocol with cryptographic protection. </p>
+            <p>In the future, when designing the architecture of the protocol with cryptographic protection, possible options for improving the efficiency of the data transmission protocol with cryptographic protection for applications of a certain class will be worked out in such a way as to exclude the possibility of certain types of attacks. The main requirement for such a protocol will be reliability.</p>
+
+            <a name=p3></a>
+			<h2>3. Theoretical description of the cryptographic algorithms used in the protocol"</h2>
+
+			<a name=p31></a>
+			<h3>3.1 Symmetric AES encryption algorithm</h3>
+            
+            <p>Advanced Encryption Standard (AES) is a symmetric block encryption algorithm (block size 128 bits, key 128/192/256 bits) adopted as an encryption standard by the US government based on the results of the AES competition. AES is a standard based on the Rijndael algorithm. For AES, the length of input (input data block) and State (state) is constant and equal to 128 bits, and the length of the cipher key K is 128, 192, or 256 bits. At the same time, the original Rijndael algorithm allows for a key length and a block size from 128 to 256 bits in 32-bit increments. To denote the selected input, State and Cipher Key lengths in 32-bit words, the notation Nb = 4 for input and State, Nk = 4, 6, 8 for Cipher Key, respectively, for different key lengths is used. </p>
+            <p>Encryption mode is a method of using a block cipher (algorithm) that allows you to convert a sequence of blocks of open data into a sequence of blocks of encrypted data. At the same time, data from another block can be used to encrypt one block. The encryption mode used is Cipher block chaining (CBC): </p>
+            <div class=img>
+				<img src='images/12.jpg' >
+				<p class=imgcaption>Picture 12 – AES algorithm encryption scheme</p>
+			</div>
+
+			<a name=p32></a>
+			<h3>3.2 Asymmetric RSA encryption algorithm</h3>
+            
+            <p>RSA is a public—key cryptographic algorithm based on the computational complexity of the problem of factorization of large integers. The RSA cryptosystem became the first system suitable for both encryption and digital signature. The algorithm is used in a large number of cryptographic applications, including PGP, S/MIME, TLS/SSL, IPSEC/IKE and others.</p>
+            <p>The cryptographic system with the RSA public key is based on the complexity of the problem of factorization of the product of two large primes. The operation of exponentiation modulo a large number is used for encryption. To decrypt in a reasonable time, it is necessary to be able to calculate the Euler function of a given large number, for which it is necessary to know the decomposition of the number into prime factors.</p>
+            <p>In a public key cryptographic system, each participant has both a public key and a private key. In the RSA cryptographic system, each key consists of a pair of integers. Each participant creates his own public and private key independently. The private key is kept secret by each of them, and the public keys can be shared with anyone or even published. The public and private keys of each participant in the exchange of messages in the RSA cryptosystem form a "consistent pair" in the sense that they are mutually inverse.</p>
+            <p>The RSA algorithm is used to encrypt the key of the symmetric algorithm with which the message is encrypted. For this operation, the public key received from the user who will receive the encrypted message and owns the private key to decrypt the symmetric key is used. The scheme of such a procedure is shown in Picture 13.</p>
+            <div class=img>
+				<img src='images/13.jpg' >
+				<p class=imgcaption>Picture 13 – RSA encryption algorithm diagram</p>
+			</div>
+
+			<a name=p33></a>
+			<h3>3.3 MD5 hashing function</h3>
+            
+            MD5 is a 128—bit hashing algorithm developed by Professor Ronald L. Rivest from the Massachusetts Institute of Technology in 1991. It is intended for creating "fingerprints" or digests of messages of arbitrary length and subsequent verification of their authenticity. It was widely used to verify the integrity of information and store passwords in a closed form.</p>
+            <p>The MD5 algorithm consists of five steps:</p>
+            <ol>
+				<li>stream alignment - a single bit is appended to the end of the stream, then the required number of zero bits. The input data is aligned so that their new size is comparable to 448 modulo 512. Alignment occurs even if the length is already comparable to 448.
+				<li>adding the message length - a 64-bit representation of the data length (the number of bits in the message) is appended to the end of the message before alignment. First, the lower 4 bytes are written, then the higher ones. If the length exceeds 2^64-1, then only the lower bits are added. After that, the length of the stream will become a multiple of 512. Calculations will be based on the representation of this data stream as an array of 512-bit words.
+				<li>buffer initialization – 4 32-bit variables are initialized for calculations and initial values are set in hexadecimal numbers. These variables will store the results of intermediate calculations, their initial state is called the initializing vector. The functions for the four rounds are also defined.
+				<li>calculation in a loop – an element from an array of 512-bit blocks is entered into the data block. The values of variables remaining after operations on previous blocks are saved. After the end of the cycle, it is necessary to check whether there are still blocks for calculations. If yes, then there is a transition to the next element of the array.
+				<li>the result of calculations is in the buffer of variables, this is the hash. If we output byte by byte, starting with the lowest byte of the first variable and ending with the highest byte of the last, then we get an MD5 hash.
+			</ol>
+            <p>The MD5 hashing scheme is shown in Picture 14</p>
+            <div class=img>
+				<img src='images/14.jpg' >
+				<p class=imgcaption>Picture 14 – MD5 hashing algorithm diagram</p>
+			</div>
+
+			<a name=p34></a>
+			<h3>3.4 Asymmetric encryption algorithm for RSA EDS</h3>
+
+            <p>The RSA system described in paragraph 3.2 can be used not only for encryption, but also for digital signature.</p>
+            <p>Since a digital signature provides both authentication of the author of the message and confirmation of the integrity of the contents of the signed message, it serves as an analogue of a handwritten signature at the end of a handwritten document.</p>
+            <p>An important property of a digital signature is that it can be verified by anyone who has access to the public key of its author. One of the participants in the exchange of messages after verifying the authenticity of the digital signature can transfer the signed message to someone else who is also able to verify this signature.</p>
+            <p>The scheme of digital signature and verification of the signed document is shown in Picture 15</p>
+            <div class=img>
+				<img src='images/15.jpg' >
+				<p class=imgcaption>Picture 15 – Digital signature and verification scheme</p>
+			</div>
+									
+			<a name=p5></a>
+			<h2>Conclusions</h2>
+
+<p>In the future, when designing the architecture of the protocol with cryptographic protection, possible options for improving the efficiency of the data transmission protocol with cryptographic protection for applications of a certain class will be worked out in such a way as to exclude the possibility of certain types of attacks. The main requirement for such a protocol will be reliability. </p>
+					
+			<a name=ref></a>
+			<h2>List of sources</h2>
+			<ol>
+				<li><a name="ref1"></a>Springer-Verlag New York. Encyclopedia of Cryptography and Security, 2005.  – 684 p .
+				<li><a name="ref2"></a>Simon Singh. The Book of Ciphers. The Secret History of Ciphers and their Decryption, 2000.  – 416 p .
+				<li><a name="ref3"></a>https://searchinform.ru/services/outsource-ib/zaschita-informatsii/pri-peredache-dannykh / Website: Elect. inform. – Access mode: https://searchinform.ru /. – Title from the screen
+				<li><a name="ref4"></a>https://mega-obzor.ru/setevoy-protokol-bezopasnosti.html Website: Elect. inform. – Access mode: https://mega-obzor.ru /. – Title from the screen
+				<li><a name="ref5"></a>https://www.securitylab.ru/analytics/526171.php Website: Elect. inform. – Access mode: https://www.securitylab.ru . – Title from the screen
+				<li><a name="ref6"></a>Doshina, A. D. Cryptography. Basic methods and problems. Modern trends in Cryptography / A.D. Doshina, A. E. Mikhailova, V. V. Karlova. — Text : direct // Modern trends in technical sciences : materials of the IV International Scientific Conference (Kazan, October 2015). — Kazan : Buk, 2015. — pp. 10-13. — URL: https://moluch.ru/conf/tech/archive/163/8782 / (accessed: 10/23/2022).
+				<li><a name="ref7"></a>RFC 2637 Point-to-Point Tunneling Protocol (PPTP)| Encyclopedia of Network Protocols [Electronic resource] — Access mode:https://www.protokols.ru/WP/rfc2637 / - Blank from the screen.
+				<li><a name="ref8"></a>Bruce Schneier. Cryptanalysis of Microsoft's Point-to-Point Tunneling Protocol (PPTP) [Electronic resource] — Access mode: https://docviewer .yandex.ru/?tm=1666977162&tld=ru&lang=en&name=paper-pptp.pdf&text=Bruce+Schneier%2C+Cryptanalysis+of+Microsoft%27s+Point+to+Point+Tunneling+Protocol+%28PPTP%29&url=https%3A//www.schneier.com/wp-content/uploads/2016/02/paper-pptp.pdf&lr=142&mime=pdf&l 10n=en&sign=d91206e1f3ea382ccc3e21ecf004ef00&keyno=0 - Blank from the screen.
+				<li><a name="ref9"></a>Semenov Yu.A. Tunnel protocol at the L2 network layer (L2TP) [Electronic resource] — Access mode: http://book.itep.ru/4/44/l2pr.htm - Blank from the screen.
+				<li><a name="ref10"></a>Internet Protocol Security [Electronic resource] — Access mode: https://ru.on1.click/tiki-index.php?page=info_Internet_Protocol_Security - Blank from the screen.
+				<li><a name="ref11"></a>OpenVPN. What is OpenVPN [Electronic resource] — Access mode: https://openmaniak.com/ru/openvpn.php - Blank from the screen.
+                <li><a name="ref12"></a>Overview of Secure Socket Tunneling Protocol [Electronic resource] — Access mode: https://vc.ru/dev/119780-obzor-secure-socket-tunneling-protocol - Blank from the screen.
+                <li><a name="ref13"></a>Clark J., Jacob J. A Survey of Authentication Protocol Literature: Version 1.0. 17 Nov. 1997 [Electronic resource] — Access mode: http://www.cs.york.ac.uk / jac/papers/drareview.ps.gz - Blank from the screen.
+                <li><a name="ref14"></a>Cryptographic Protocols – Basic Definitions [Electronic resource] — Access mode: https://cryptoprotocols.ucoz.com/index/main_definitions/0-2 #- Title from the screen.
+                <li><a name="ref15"></a>Cheremushkin A.V. Cryptographic protocols: basic properties and vulnerabilities // Applied Discrete Mathematics. — 2009. — Nov. — issue 2. — pp. 115-150. — URL: cyberleninka.ru/article/n/kriptograficheskie-protokoly-osnovnye-svoystva-i-uyazvimosti.pdf.
+                <li><a name="ref16"></a>Grishchenko, O. S. Analysis of authentication algorithms in distributed software systems / O. S. Grishchenko, A.V. Chernyshova // Software engineering: methods and technologies for the development of information and computing systems (PIIVS-2018) : Collection of scientific papers of the II International Scientific and Practical Conference, Donetsk, November 14-15, 2018. Volume 1. – Donetsk: Donetsk National Technical University, 2018. – pp. 102-108. – EDN XBCKSN. 
+                <li><a name="ref17"></a>Grishchenko, O. S. Information protection in applications for instant messaging / O. S. Grishchenko, A.V. Chernyshova // Informatics, control systems, mathematical and computer modeling (IUSMKM-2017) : Collection of materials of the VIII International Scientific and Technical Conference within the framework of the III International Scientific Forum of the Donetsk People's Republic, Donetsk, May 25, 2017 of the year / Editorial Board: Yu.K. Orlov [et al.]. – Donetsk: Donetsk National Technical University, 2017. – pp. 115-119. – EDN KKRGJS.
+            </ol>
+		
+		</div> <!-- maintext -->
+	
+	</div> <!-- middleblock -->
+
+	<div id="menub">
+		<a class="mitemb" href="../index.html">Резюме</a>
+		<a class="mitemb" href="../bio/index.html">Биография</a>
+		<a class="mitemb" href="../library/index.html">Библиотека</a>
+		<a class="mitemb" href="../links/index.html">Ссылки</a>
+		<a class="mitemb" href="../links/zvit.html">Отчет о поиске</a> 
+		<a class="mitemb" href="../ind/index.html">Индивидуальный раздел</a>
+	</div>
+
+</body>
+</html>
