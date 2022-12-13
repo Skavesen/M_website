@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title></title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft10{font-size:19px;font-family:Times;color:#000000;}
+	.ft11{font-size:19px;font-family:Times;color:#000000;}
+	.ft12{font-size:22px;font-family:Times;color:#000000;}
+	.ft13{font-size:22px;font-family:Times;color:#000000;}
+	.ft14{font-size:18px;font-family:Times;color:#000000;}
+	.ft15{font-size:18px;font-family:Times;color:#000000;}
+	.ft16{font-size:19px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="images/target001.png" alt="background image"/>
+<p style="position:absolute;top:86px;left:96px;white-space:nowrap" class="ft10">УДК&#160;004.056&#160;</p>
+<p style="position:absolute;top:134px;left:183px;white-space:nowrap" class="ft12"><b>ОБЗОР&#160;ПРОТОКОЛОВ&#160;ПЕРЕДАЧИ&#160;ДАННЫХ,&#160;</b></p>
+<p style="position:absolute;top:162px;left:121px;white-space:nowrap" class="ft12"><b>ИСПОЛЬЗУЮЩИХ&#160;КРИПТОГРАФИЧЕСКУЮ&#160;ЗАЩИТУ&#160;</b></p>
+<p style="position:absolute;top:213px;left:292px;white-space:nowrap" class="ft10">Бондаренко&#160;В.В.,&#160;Чернышова&#160;А.В.&#160;</p>
+<p style="position:absolute;top:238px;left:105px;white-space:nowrap" class="ft10">ГОУ&#160;ВПО&#160;«Донецкий&#160;национальный&#160;технический&#160;университет» (г.&#160;Донецк)&#160;</p>
+<p style="position:absolute;top:266px;left:159px;white-space:nowrap" class="ft11">e-mail: vadimbond.2000@gmail.com,&#160;chernyshova.alla@rambler.ru</p>
+<p style="position:absolute;top:334px;left:96px;white-space:nowrap" class="ft14"><b>Постановка&#160;проблемы&#160;</b></p>
+<p style="position:absolute;top:382px;left:149px;white-space:nowrap" class="ft10">Защита&#160;информации&#160;при&#160;передаче&#160;данных&#160;в&#160;компьютерных&#160;сетях&#160;одна&#160;</p>
+<p style="position:absolute;top:407px;left:96px;white-space:nowrap" class="ft16">из&#160;&#160;важнейших&#160;&#160;задач&#160;&#160;в&#160;&#160;&#160;&#160;современном&#160;&#160;мире.&#160;&#160;Внутри&#160;&#160;локальной&#160;&#160;сети&#160;&#160;данные&#160;<br/>могут&#160;&#160;быть&#160;&#160;надежно&#160;&#160;защищены,&#160;&#160;но&#160;&#160;при&#160;&#160;передаче&#160;&#160;данных&#160;&#160;за&#160;&#160;пределы&#160;<br/>локальной&#160;&#160;сети,&#160;&#160;при&#160;&#160;использовании&#160;&#160;сети&#160;Internet,&#160;вероятность&#160;&#160;утечек&#160;<br/>повышается. &#160;</p>
+<p style="position:absolute;top:503px;left:149px;white-space:nowrap" class="ft10">Очень&#160;часто&#160;использование&#160;недостаточно&#160;эффективных&#160;средств&#160;защиты&#160;</p>
+<p style="position:absolute;top:527px;left:96px;white-space:nowrap" class="ft16">становится&#160;&#160;причиной&#160;&#160;утраты&#160;&#160;персональных&#160;&#160;данных&#160;&#160;граждан,&#160;&#160;номеров&#160;&#160;их&#160;<br/>банковских&#160;карт,&#160;сведений,&#160;имеющих&#160;характер&#160;коммерческой&#160;тайны. [1].&#160;</p>
+<p style="position:absolute;top:576px;left:149px;white-space:nowrap" class="ft10">Поэтому&#160;&#160;исследование&#160;&#160;существующих&#160;&#160;протоколов&#160;&#160;безопасной&#160;</p>
+<p style="position:absolute;top:600px;left:96px;white-space:nowrap" class="ft16">передачи&#160;&#160;данных,&#160;&#160;которые&#160;&#160;используют&#160;&#160;криптографические&#160;&#160;алгоритмы,&#160;<br/>весьма&#160;&#160;актуально.&#160;&#160;На&#160;&#160;сегодняшний&#160;&#160;день&#160;&#160;существуют&#160;&#160;протоколы&#160;&#160;защиты&#160;<br/>информации,&#160;&#160;работающие&#160;&#160;на&#160;&#160;различных&#160;&#160;уровнях&#160;&#160;по&#160;&#160;отношению&#160;&#160;к&#160;&#160;уровням&#160;<br/>стека&#160;протоколов&#160;TCP/IP&#160;и&#160;модели&#160;OSI. &#160;</p>
+<p style="position:absolute;top:696px;left:149px;white-space:nowrap" class="ft10">Чтобы&#160;говорить&#160;о&#160;проектировании&#160;собственного&#160;протокола&#160;безопасной&#160;</p>
+<p style="position:absolute;top:720px;left:96px;white-space:nowrap" class="ft16">передачи&#160;&#160;данных,&#160;&#160;рассмотрим&#160;&#160;сначала&#160;&#160;существующие&#160;&#160;протоколы,&#160;&#160;наиболее&#160;<br/>популярные&#160;</p>
+<p style="position:absolute;top:745px;left:239px;white-space:nowrap" class="ft10">протоколы&#160;</p>
+<p style="position:absolute;top:745px;left:370px;white-space:nowrap" class="ft10">для&#160;</p>
+<p style="position:absolute;top:745px;left:435px;white-space:nowrap" class="ft10">безопасной&#160;</p>
+<p style="position:absolute;top:745px;left:570px;white-space:nowrap" class="ft10">передачи&#160;</p>
+<p style="position:absolute;top:745px;left:687px;white-space:nowrap" class="ft10">данных&#160;</p>
+<p style="position:absolute;top:745px;left:788px;white-space:nowrap" class="ft10">с&#160;</p>
+<p style="position:absolute;top:769px;left:96px;white-space:nowrap" class="ft16">криптографической&#160;&#160;защитой.&#160;&#160;Проведем&#160;&#160;обзор&#160;&#160;и&#160;&#160;краткий&#160;&#160;анализ&#160;&#160;этих&#160;<br/>протоколов.&#160;</p>
+<p style="position:absolute;top:841px;left:96px;white-space:nowrap" class="ft14"><b>Криптографические&#160;протоколы&#160; SSL, TLS&#160;</b></p>
+<p style="position:absolute;top:889px;left:149px;white-space:nowrap" class="ft10">Протоколы&#160;SSL&#160;и&#160;TLS&#160;применяются&#160;&#160;в&#160;&#160;качестве&#160;&#160;протоколов&#160;</p>
+<p style="position:absolute;top:914px;left:96px;white-space:nowrap" class="ft16">защищенного&#160;&#160;канала,&#160;&#160;работающего&#160;&#160;на&#160;&#160;представительском&#160;&#160;и&#160;&#160;сеансовом&#160;<br/>уровнях&#160;модели&#160;OSI.&#160;Эти&#160;протоколы&#160;использует&#160;криптографические&#160;методы&#160;<br/>защиты&#160;информации&#160;для&#160;обеспечения&#160;безопасности&#160;передаваемых&#160;данных. &#160;</p>
+<p style="position:absolute;top:986px;left:149px;white-space:nowrap" class="ft10">Протоколы&#160;SSL&#160;и&#160;TLS&#160;выполняет&#160;функции&#160;по&#160;созданию&#160;защищенного&#160;</p>
+<p style="position:absolute;top:1010px;left:96px;white-space:nowrap" class="ft16">канала&#160;&#160;между&#160;&#160;двумя&#160;&#160;узлами&#160;&#160;сети,&#160;&#160;в&#160;&#160;том&#160;&#160;числе&#160;&#160;и&#160;&#160;их&#160;&#160;взаимную&#160;<br/>аутентификацию,&#160;&#160;а&#160;&#160;также&#160;&#160;выполняют&#160;&#160;обеспечение&#160;&#160;конфиденциальности,&#160;<br/>целостности&#160;и&#160;аутентичности&#160;передаваемых&#160;данных.&#160;Протоколы&#160; SSL&#160;и&#160;TLS&#160;<br/>используют&#160;технологию&#160;асимметричного&#160;и&#160;симметричного&#160;шифрования.&#160;</p>
+<p style="position:absolute;top:1107px;left:149px;white-space:nowrap" class="ft10">Конфиденциальность&#160;&#160;обеспечивается&#160;&#160;шифрованием&#160;&#160;передаваемых&#160;</p>
+<p style="position:absolute;top:1131px;left:96px;white-space:nowrap" class="ft10">сообщений&#160;с&#160;использованием&#160;симметричных&#160;сессионных&#160;ключей,&#160;которыми&#160;</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title></title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft20{font-size:18px;font-family:Times;color:#000000;}
+	.ft21{font-size:18px;font-family:Times;color:#000000;}
+	.ft22{font-size:18px;font-family:Times;color:#000000;}
+	.ft23{font-size:18px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page2-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="images/target002.png" alt="background image"/>
+<p style="position:absolute;top:86px;left:96px;white-space:nowrap" class="ft23">стороны&#160;&#160;обмениваются&#160;&#160;при&#160;&#160;установлении&#160;&#160;соединения.&#160;&#160;Сессионные&#160;&#160;ключи&#160;<br/>шифруются&#160;&#160;с&#160;&#160;помощью&#160;&#160;открытых&#160;&#160;ключей,&#160;&#160;извлеченных&#160;&#160;из&#160;&#160;сертификатов&#160;<br/>абонентов.&#160;&#160;Использование&#160;&#160;для&#160;&#160;защиты&#160;&#160;сообщений&#160;&#160;симметричных&#160;&#160;ключей&#160;<br/>связано&#160;&#160;с&#160;&#160;тем,&#160;&#160;что&#160;&#160;скорость&#160;&#160;процессов&#160;&#160;шифрования&#160;&#160;и&#160;&#160;расшифрования&#160;&#160;на&#160;<br/>основе&#160;ключа&#160;&#160;симметричного&#160;алгоритма&#160;существенно&#160;выше.&#160;Подлинность&#160;и&#160;<br/>целостность&#160;&#160;циркулирующей&#160;&#160;информации&#160;&#160;обеспечивается&#160;&#160;за&#160;&#160;счет&#160;<br/>формирования&#160;и&#160;проверки&#160;электронной&#160;цифровой&#160;подписи&#160;[2].&#160;</p>
+<p style="position:absolute;top:255px;left:149px;white-space:nowrap" class="ft20">В&#160;&#160;качестве&#160;&#160;алгоритмов&#160;&#160;асимметричного&#160;&#160;шифрования&#160;&#160;используются&#160;</p>
+<p style="position:absolute;top:279px;left:96px;white-space:nowrap" class="ft20">алгоритм&#160;RSA&#160;и&#160;</p>
+<p style="position:absolute;top:279px;left:325px;white-space:nowrap" class="ft20">Диффи-Хеллмана.&#160;</p>
+<p style="position:absolute;top:279px;left:521px;white-space:nowrap" class="ft20">Допустимыми&#160;</p>
+<p style="position:absolute;top:279px;left:680px;white-space:nowrap" class="ft20">алгоритмами&#160;</p>
+<p style="position:absolute;top:303px;left:96px;white-space:nowrap" class="ft23">симметричного&#160;&#160;шифрования&#160;&#160;являются&#160;RC2, RC4, DES, 3DES&#160;и&#160;AES.&#160;Для&#160;<br/>вычисления&#160;&#160;хэш-функций&#160;&#160;могут&#160;&#160;применяться&#160;&#160;стандарты&#160;MD5&#160;и&#160;SHA-1.&#160;В&#160;<br/>протоколе&#160;SSL&#160;версии&#160;3.0&#160;набор&#160;&#160;криптографических&#160;&#160;алгоритмов&#160;&#160;является&#160;<br/>расширяемым.&#160;</p>
+<p style="position:absolute;top:400px;left:149px;white-space:nowrap" class="ft20">Согласно&#160;&#160;протоколу&#160;SSL,&#160;криптозащищенные&#160;&#160;туннели&#160;&#160;создаются&#160;</p>
+<p style="position:absolute;top:424px;left:96px;white-space:nowrap" class="ft23">между&#160;&#160;конечными&#160;&#160;точками&#160;&#160;виртуальной&#160;&#160;сети.&#160;&#160;Инициаторами&#160;&#160;каждого&#160;<br/>защищенного&#160;туннеля&#160;являются&#160;клиент&#160;и&#160;сервер&#160;в&#160;конечных&#160;точках&#160;туннеля.&#160;</p>
+<p style="position:absolute;top:766px;left:133px;white-space:nowrap" class="ft20">Рисунок&#160;1 -&#160;Криптозащищенные&#160;туннели,&#160;сформированные&#160;на&#160;основе&#160;</p>
+<p style="position:absolute;top:790px;left:380px;white-space:nowrap" class="ft20">протокола&#160;SSL&#160;</p>
+<p style="position:absolute;top:839px;left:149px;white-space:nowrap" class="ft20">Протоколы&#160;SSL&#160;и&#160;TLS&#160;предназначены&#160;&#160;для&#160;&#160;решения&#160;&#160;традиционных&#160;</p>
+<p style="position:absolute;top:863px;left:96px;white-space:nowrap" class="ft23">задач&#160;&#160;обеспечения&#160;&#160;защиты&#160;&#160;информационного&#160;&#160;взаимодействия,&#160;&#160;которые&#160;&#160;в&#160;<br/>среде&#160;клиент-сервер&#160;интерпретируются&#160;следующим&#160;образом:&#160;</p>
+<p style="position:absolute;top:915px;left:149px;white-space:nowrap" class="ft22"><b>-&#160;&#160;</b>пользователь&#160;&#160;и&#160;&#160;сервер&#160;&#160;должны&#160;&#160;быть&#160;&#160;взаимно&#160;&#160;уверены,&#160;&#160;что&#160;&#160;они</p>
+<p style="position:absolute;top:935px;left:96px;white-space:nowrap" class="ft23">обмениваются&#160;информацией&#160;не&#160;с&#160;подставными&#160;абонентами,&#160;а&#160;именно&#160;с&#160;теми&#160;<br/>абонентами,&#160;которые&#160;нужны,&#160;не&#160;ограничиваясь&#160;защитой&#160;с&#160;помощью&#160;паролей;&#160;</p>
+<p style="position:absolute;top:988px;left:149px;white-space:nowrap" class="ft22"><b>-&#160;&#160;</b>после&#160;&#160;установления&#160;&#160;соединения&#160;&#160;между&#160;&#160;сервером&#160;&#160;и&#160;&#160;клиентом&#160;&#160;весь</p>
+<p style="position:absolute;top:1008px;left:96px;white-space:nowrap" class="ft23">информационный&#160;&#160;поток&#160;&#160;между&#160;&#160;ними&#160;&#160;должен&#160;&#160;быть&#160;&#160;защищен&#160;&#160;от&#160;<br/>несанкционированного&#160;доступа;&#160;</p>
+<p style="position:absolute;top:1060px;left:149px;white-space:nowrap" class="ft22"><b>-&#160;&#160;</b></p>
+<p style="position:absolute;top:1056px;left:179px;white-space:nowrap" class="ft20">при&#160;&#160;обмене&#160;&#160;информацией&#160;&#160;стороны&#160;&#160;должны&#160;&#160;быть&#160;&#160;уверены&#160;&#160;в</p>
+<p style="position:absolute;top:1080px;left:96px;white-space:nowrap" class="ft20">отсутствии&#160;случайных&#160;или&#160;умышленных&#160;искажений&#160;при&#160;ее&#160;передаче.&#160;</p>
+<p style="position:absolute;top:1104px;left:149px;white-space:nowrap" class="ft20">Принцип&#160;работы&#160;протоколов&#160;SSL, TLS&#160;таков:&#160;поверх&#160;протокола&#160;TCP/IP&#160;</p>
+<p style="position:absolute;top:1129px;left:96px;white-space:nowrap" class="ft23">устанавливается&#160;зашифрованный&#160;канал,&#160;внутри&#160;которого&#160;передаются&#160;данные&#160;<br/>по&#160;прикладному&#160;протоколу&#160;— HTTP, FTP, SMTP, POP3, IMAP&#160;и&#160;так&#160;далее. &#160;</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title></title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft30{font-size:18px;font-family:Times;color:#000000;}
+	.ft31{font-size:18px;font-family:Times;color:#000000;}
+	.ft32{font-size:18px;font-family:Times;color:#000000;}
+	.ft33{font-size:18px;font-family:Times;color:#000000;}
+	.ft34{font-size:18px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page3-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="images/target003.png" alt="background image"/>
+<p style="position:absolute;top:293px;left:184px;white-space:nowrap" class="ft30">Рисунок&#160;2 –&#160;Графическое&#160;представление&#160;принципа&#160;работы&#160;</p>
+<p style="position:absolute;top:337px;left:149px;white-space:nowrap" class="ft30">Протоколы&#160;SSL, TLS&#160;позволяют&#160;&#160;серверу&#160;&#160;и&#160;&#160;клиенту&#160;&#160;перед&#160;&#160;началом&#160;</p>
+<p style="position:absolute;top:361px;left:96px;white-space:nowrap" class="ft30">информационного&#160;</p>
+<p style="position:absolute;top:361px;left:291px;white-space:nowrap" class="ft30">взаимодействия&#160;</p>
+<p style="position:absolute;top:361px;left:465px;white-space:nowrap" class="ft30">аутентифицировать&#160;</p>
+<p style="position:absolute;top:361px;left:671px;white-space:nowrap" class="ft30">друг&#160;</p>
+<p style="position:absolute;top:361px;left:742px;white-space:nowrap" class="ft30">друга,&#160;</p>
+<p style="position:absolute;top:385px;left:96px;white-space:nowrap" class="ft30">согласовать&#160;</p>
+<p style="position:absolute;top:385px;left:242px;white-space:nowrap" class="ft30">алгоритм&#160;</p>
+<p style="position:absolute;top:385px;left:366px;white-space:nowrap" class="ft30">шифрования&#160;</p>
+<p style="position:absolute;top:385px;left:520px;white-space:nowrap" class="ft30">и&#160;</p>
+<p style="position:absolute;top:385px;left:571px;white-space:nowrap" class="ft30">сформировать&#160;</p>
+<p style="position:absolute;top:385px;left:739px;white-space:nowrap" class="ft30">общие&#160;</p>
+<p style="position:absolute;top:410px;left:96px;white-space:nowrap" class="ft30">криптографические&#160;ключи.&#160;</p>
+<p style="position:absolute;top:434px;left:149px;white-space:nowrap" class="ft30">Целостность&#160;</p>
+<p style="position:absolute;top:434px;left:296px;white-space:nowrap" class="ft30">и&#160;</p>
+<p style="position:absolute;top:434px;left:340px;white-space:nowrap" class="ft30">аутентификация&#160;</p>
+<p style="position:absolute;top:434px;left:520px;white-space:nowrap" class="ft30">сообщения&#160;</p>
+<p style="position:absolute;top:434px;left:652px;white-space:nowrap" class="ft30">обеспечиваются&#160;</p>
+<p style="position:absolute;top:458px;left:96px;white-space:nowrap" class="ft30">использованием&#160;электронной&#160;цифровой&#160;подписи. &#160;</p>
+<p style="position:absolute;top:482px;left:149px;white-space:nowrap" class="ft30">Протоколами&#160;SSL, TLS&#160;поддерживается&#160;&#160;ПО&#160;&#160;серверов&#160;&#160;и&#160;&#160;клиентов,&#160;</p>
+<p style="position:absolute;top:506px;left:96px;white-space:nowrap" class="ft30">выпускаемых&#160;</p>
+<p style="position:absolute;top:506px;left:251px;white-space:nowrap" class="ft30">ведущими&#160;</p>
+<p style="position:absolute;top:506px;left:377px;white-space:nowrap" class="ft30">западными&#160;</p>
+<p style="position:absolute;top:506px;left:509px;white-space:nowrap" class="ft30">компаниями.&#160;</p>
+<p style="position:absolute;top:506px;left:660px;white-space:nowrap" class="ft30">Существенным&#160;</p>
+<p style="position:absolute;top:530px;left:96px;white-space:nowrap" class="ft34">недостатком&#160;&#160;протоколов&#160;SSL, TLS&#160;является&#160;&#160;то,&#160;&#160;что&#160;&#160;практически&#160;&#160;все&#160;<br/>продукты,&#160;&#160;поддерживающие&#160;&#160;эти&#160;&#160;протоколы&#160;&#160;из-за&#160;&#160;экспортных&#160;&#160;ограничений&#160;<br/>доступны&#160;&#160;за&#160;&#160;пределами&#160;&#160;США&#160;&#160;лишь&#160;&#160;в&#160;&#160;усеченном&#160;&#160;варианте&#160;&#160;(с&#160;&#160;длиной&#160;<br/>сеансового&#160;ключа&#160;40&#160;бит&#160;для&#160;алгоритмов&#160;симметричного&#160;шифрования&#160;и&#160;512&#160;<br/>бит&#160;для&#160;алгоритма&#160;RSA,&#160;используемого&#160;на&#160;этапе&#160;установления&#160;SSL-сессии).&#160;</p>
+<p style="position:absolute;top:651px;left:149px;white-space:nowrap" class="ft30">К&#160;&#160;недостаткам&#160;&#160;протоколов&#160;SSL&#160;и&#160;TLS&#160;можно&#160;&#160;отнести&#160;&#160;то,&#160;&#160;что&#160;&#160;для&#160;</p>
+<p style="position:absolute;top:675px;left:96px;white-space:nowrap" class="ft34">транспортировки&#160;&#160;своих&#160;&#160;сообщений&#160;&#160;они&#160;&#160;используют&#160;&#160;только&#160;&#160;один&#160;&#160;протокол&#160;<br/>сетевого&#160;уровня&#160;— IP,&#160;и,&#160;следовательно,&#160;могут&#160;работать&#160;только&#160;в&#160;IР-сетях.&#160;</p>
+<p style="position:absolute;top:723px;left:149px;white-space:nowrap" class="ft30">Кроме&#160;&#160;того,&#160;&#160;в&#160;&#160;протоколах&#160;SSL&#160;и&#160;TLS&#160;для&#160;&#160;аутентификации&#160;&#160;и&#160;</p>
+<p style="position:absolute;top:748px;left:96px;white-space:nowrap" class="ft34">шифрования&#160;&#160;используются&#160;&#160;одинаковые&#160;&#160;ключи,&#160;&#160;что&#160;&#160;при&#160;&#160;определенных&#160;<br/>условиях&#160;&#160;может&#160;&#160;привести&#160;&#160;к&#160;&#160;потенциальной&#160;&#160;уязвимости.&#160;&#160;Подобное&#160;&#160;решение&#160;<br/>дает&#160;&#160;возможность&#160;&#160;собрать&#160;&#160;больше&#160;&#160;статистического&#160;&#160;материала,&#160;&#160;чем&#160;&#160;при&#160;<br/>аутентификации&#160;и&#160;шифровании&#160;разными&#160;ключами.&#160;</p>
+<p style="position:absolute;top:869px;left:96px;white-space:nowrap" class="ft32"><b>Туннельный&#160;протокол&#160;PPTP</b>&#160;</p>
+<p style="position:absolute;top:921px;left:149px;white-space:nowrap" class="ft31">PPTP (point-to-point&#160;tunneling protocol) –&#160;протокол&#160;для&#160;VPN&#160;соединения&#160;</p>
+<p style="position:absolute;top:941px;left:96px;white-space:nowrap" class="ft34">формата&#160;&#160;точка-точка,&#160;&#160;с&#160;&#160;помощью&#160;&#160;которого&#160;&#160;создается&#160;&#160;защищенный&#160;&#160;туннель&#160;<br/>между&#160;сервером&#160;и&#160;определенным&#160;устройством&#160;поверх&#160;другой&#160;сети,&#160;например,&#160;<br/>Интернет.&#160;</p>
+<p style="position:absolute;top:1013px;left:149px;white-space:nowrap" class="ft30">Из&#160;&#160;всех&#160;VPN-протоколов&#160;PPTP&#160;является&#160;&#160;одним&#160;&#160;из&#160;&#160;наиболее&#160;</p>
+<p style="position:absolute;top:1037px;left:96px;white-space:nowrap" class="ft34">распространенных,&#160;&#160;наиболее&#160;&#160;простых&#160;&#160;в&#160;&#160;настройке&#160;&#160;и&#160;&#160;наиболее&#160;&#160;быстро&#160;<br/>работающих&#160;&#160;протоколов.&#160;&#160;По&#160;&#160;этой&#160;&#160;причине&#160;PPTP&#160;особенно&#160;&#160;часто&#160;<br/>используется&#160;&#160;в&#160;&#160;приложениях,&#160;&#160;в&#160;&#160;которых&#160;&#160;скорость&#160;&#160;имеет&#160;&#160;первостепенное&#160;<br/>значение,&#160;&#160;например,&#160;&#160;для&#160;&#160;передачи&#160;&#160;потокового&#160;&#160;аудио&#160;&#160;или&#160;&#160;видео,&#160;&#160;а&#160;&#160;также&#160;&#160;на&#160;</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title></title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft40{font-size:19px;font-family:Times;color:#000000;}
+	.ft41{font-size:19px;font-family:Times;color:#000000;}
+	.ft42{font-size:18px;font-family:Times;color:#000000;}
+	.ft43{font-size:18px;font-family:Times;color:#000000;}
+	.ft44{font-size:19px;line-height:24px;font-family:Times;color:#000000;}
+	.ft45{font-size:19px;line-height:28px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page4-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="images/target001.png" alt="background image"/>
+<p style="position:absolute;top:86px;left:96px;white-space:nowrap" class="ft44">более&#160;&#160;старых&#160;&#160;и&#160;&#160;медленных&#160;&#160;устройствах&#160;&#160;с&#160;&#160;более&#160;&#160;ограниченными&#160;<br/>процессорами&#160;[3].&#160;</p>
+<p style="position:absolute;top:134px;left:149px;white-space:nowrap" class="ft40">В&#160;&#160;то&#160;&#160;же&#160;&#160;время&#160;&#160;в&#160;&#160;протоколе&#160;PPTP&#160;обнаружены&#160;&#160;серьезные&#160;&#160;уязвимости.&#160;</p>
+<p style="position:absolute;top:158px;left:96px;white-space:nowrap" class="ft44">Его&#160;&#160;базовые&#160;&#160;протоколы&#160;&#160;аутентификации,&#160;&#160;обычно&#160;MS-CHAP-v1/v2,&#160;<br/>совершенно&#160;&#160;ненадежны&#160;&#160;и&#160;&#160;с&#160;&#160;момента&#160;&#160;его&#160;&#160;появления&#160;&#160;неоднократно&#160;<br/>взламывались&#160;&#160;при&#160;&#160;проведении&#160;&#160;анализа&#160;&#160;безопасности.&#160;&#160;Поэтому&#160;PPTP&#160;не&#160;<br/>рекомендуется,&#160;&#160;за&#160;&#160;исключением&#160;&#160;случаев,&#160;&#160;где&#160;&#160;безопасность&#160;&#160;абсолютно&#160;<br/>несущественна.&#160;</p>
+<p style="position:absolute;top:303px;left:96px;white-space:nowrap" class="ft42"><b>Туннельный&#160;протокол&#160;L2TP/IPsec</b></p>
+<p style="position:absolute;top:308px;left:422px;white-space:nowrap" class="ft41">&#160;</p>
+<p style="position:absolute;top:356px;left:149px;white-space:nowrap" class="ft41">L2TP&#160;&#160;это&#160;&#160;протокол&#160;&#160;туннелирования,&#160;&#160;который&#160;&#160;является&#160;&#160;расширением&#160;</p>
+<p style="position:absolute;top:375px;left:96px;white-space:nowrap" class="ft44">протокола&#160;PPP&#160;и&#160;&#160;объединяет&#160;&#160;лучшие&#160;&#160;функции&#160;&#160;двух&#160;&#160;других&#160;&#160;протоколов&#160;<br/>туннелирования&#160;PPTP&#160;и&#160;L2F.&#160;Протокол&#160;L2TP,&#160;хоть&#160;и&#160;используется&#160;для&#160;VPN&#160;<br/>соединений,&#160;&#160;сам&#160;&#160;по&#160;&#160;себе&#160;&#160;не&#160;&#160;может&#160;&#160;обеспечить&#160;&#160;конфиденциальность&#160;&#160;или&#160;<br/>аутентификацию,&#160;поэтому&#160;он&#160;часто&#160;применяется&#160;вместе&#160;с&#160;протоколом&#160;IPSec,&#160;<br/>который&#160;&#160;обеспечивает&#160;&#160;защищенное&#160;&#160;соединения.&#160;&#160;Комбинация&#160;&#160;этих&#160;&#160;двух&#160;<br/>протоколов&#160;известна&#160;как&#160;L2TP/IPsec.&#160;</p>
+<p style="position:absolute;top:525px;left:149px;white-space:nowrap" class="ft41">L2TP/IPsec&#160;&#160;дважды&#160;&#160;инкапсулирует&#160;&#160;данные,&#160;&#160;что&#160;&#160;может&#160;&#160;замедлить&#160;</p>
+<p style="position:absolute;top:544px;left:96px;white-space:nowrap" class="ft44">скорость&#160;&#160;соединения.&#160;&#160;Тем&#160;&#160;не&#160;&#160;менее,&#160;&#160;протокол&#160;L2TP/IPsec&#160;обеспечивает&#160;<br/>процесс&#160;&#160;шифрования&#160;&#160;и&#160;&#160;расшифровки&#160;&#160;внутри&#160;&#160;ядра&#160;&#160;и&#160;&#160;поддерживает&#160;<br/>многопоточность,&#160;&#160;в&#160;&#160;отличии&#160;&#160;от&#160;&#160;протокола&#160;OpenVPN.&#160;Учитывая&#160;&#160;этот&#160;&#160;факт,&#160;<br/>теоретически&#160;скорость&#160;L2TP/IPsec&#160;может&#160;быть&#160;быстрее,&#160;чем&#160;OpenVPN.&#160;</p>
+<p style="position:absolute;top:645px;left:149px;white-space:nowrap" class="ft41">L2TP/IPsec&#160;&#160;так&#160;&#160;же&#160;&#160;легко&#160;&#160;и&#160;&#160;быстро&#160;&#160;настроить,&#160;&#160;как&#160;&#160;и&#160;PPTP,&#160;однако&#160;&#160;он&#160;</p>
+<p style="position:absolute;top:665px;left:95px;white-space:nowrap" class="ft44">более&#160;&#160;безопасен&#160;&#160;за&#160;&#160;счет&#160;&#160;чуть&#160;&#160;более&#160;&#160;низкой&#160;&#160;скорости&#160;&#160;соединения.&#160;&#160;Тем&#160;&#160;не&#160;<br/>менее,&#160;поскольку&#160;протокол&#160;L2TP&#160;использует&#160;UDP&#160;порт&#160;500,&#160;есть&#160;вероятность,&#160;<br/>что&#160;VPN&#160;соединение&#160;&#160;может&#160;&#160;быть&#160;&#160;обнаружено&#160;&#160;и&#160;&#160;заблокировано&#160;&#160;некоторыми&#160;<br/>брандмауэрами.&#160;</p>
+<p style="position:absolute;top:762px;left:148px;white-space:nowrap" class="ft40">Стек&#160;&#160;протоколов&#160;IPsec (Internet Protocol Security)&#160;применяется&#160;&#160;для&#160;</p>
+<p style="position:absolute;top:786px;left:95px;white-space:nowrap" class="ft45">аутентификации&#160;участников&#160;обмена,&#160;туннелирования&#160;трафика&#160;и&#160;шифрования&#160;<br/>IP-пакетов.&#160;</p>
+<p style="position:absolute;top:834px;left:148px;white-space:nowrap" class="ft40">Главная&#160;&#160;задача&#160;&#160;протоколов&#160;IPsec –&#160;обеспечить&#160;&#160;безопасную&#160;&#160;передачу&#160;</p>
+<p style="position:absolute;top:858px;left:95px;white-space:nowrap" class="ft40">данных&#160;по&#160;сетям&#160;IP.&#160;Применение&#160;IPSec&#160;обеспечивает:&#160;</p>
+<p style="position:absolute;top:887px;left:149px;white-space:nowrap" class="ft43"><b>-</b></p>
+<p style="position:absolute;top:887px;left:177px;white-space:nowrap" class="ft43"><b>&#160;</b></p>
+<p style="position:absolute;top:883px;left:183px;white-space:nowrap" class="ft40">аутентификацию&#160;-&#160;доказательство&#160;&#160;отправки&#160;&#160;пакетов&#160;&#160;вашим</p>
+<p style="position:absolute;top:907px;left:96px;white-space:nowrap" class="ft40">партнером&#160;по&#160;взаимодействию,&#160;то&#160;есть&#160;обладателем&#160;разделяемого&#160;секрета;&#160;</p>
+<p style="position:absolute;top:935px;left:149px;white-space:nowrap" class="ft43"><b>-</b></p>
+<p style="position:absolute;top:931px;left:166px;white-space:nowrap" class="ft40">целостность&#160;-&#160;невозможность&#160;изменения&#160;данных&#160;в&#160;пакете;</p>
+<p style="position:absolute;top:959px;left:149px;white-space:nowrap" class="ft43"><b>-&#160;&#160;</b></p>
+<p style="position:absolute;top:955px;left:177px;white-space:nowrap" class="ft40">конфиденциальность&#160;-&#160;невозможность&#160;&#160;раскрытия&#160;&#160;передаваемых</p>
+<p style="position:absolute;top:979px;left:96px;white-space:nowrap" class="ft40">данных;&#160;</p>
+<p style="position:absolute;top:1008px;left:149px;white-space:nowrap" class="ft43"><b>-</b></p>
+<p style="position:absolute;top:1003px;left:178px;white-space:nowrap" class="ft40">надежное&#160;&#160;управление&#160;&#160;ключами&#160;-&#160;протокол&#160;IKE&#160;вычисляет</p>
+<p style="position:absolute;top:1027px;left:96px;white-space:nowrap" class="ft40">разделяемый&#160;секрет,&#160;известный&#160;только&#160;получателю&#160;и&#160;отправителю&#160;пакета;&#160;</p>
+<p style="position:absolute;top:1056px;left:149px;white-space:nowrap" class="ft43"><b>-</b></p>
+<p style="position:absolute;top:1052px;left:168px;white-space:nowrap" class="ft40">туннелирование&#160;-&#160;полную&#160;&#160;маскировку&#160;&#160;топологии&#160;&#160;локальной&#160;&#160;сети</p>
+<p style="position:absolute;top:1076px;left:96px;white-space:nowrap" class="ft40">предприятия&#160;[4].&#160;</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title></title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft50{font-size:18px;font-family:Times;color:#000000;}
+	.ft51{font-size:18px;font-family:Times;color:#000000;}
+	.ft52{font-size:18px;font-family:Times;color:#000000;}
+	.ft53{font-size:18px;font-family:Times;color:#000000;}
+	.ft54{font-size:18px;line-height:24px;font-family:Times;color:#000000;}
+	.ft55{font-size:18px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page5-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="images/target005.png" alt="background image"/>
+<p style="position:absolute;top:376px;left:224px;white-space:nowrap" class="ft50">&#160;Рисунок&#160;3 –&#160;Архитектура&#160;стека&#160;протоколов&#160;IPsec&#160;</p>
+<p style="position:absolute;top:420px;left:149px;white-space:nowrap" class="ft51">Протокол&#160;AH&#160;является&#160;опциональным&#160;заголовком&#160;и&#160;расположен&#160;между&#160;</p>
+<p style="position:absolute;top:444px;left:96px;white-space:nowrap" class="ft54">основным&#160;заголовком&#160;пакета&#160;IP&#160;и&#160;полем&#160;данных. AH&#160;отвечает&#160;за&#160;обеспечение&#160;<br/>целостности&#160;и&#160;аутентификации&#160;данных.&#160;</p>
+<p style="position:absolute;top:492px;left:149px;white-space:nowrap" class="ft51">Протокол&#160;ESP&#160;способен&#160;&#160;шифровать&#160;&#160;данные,&#160;&#160;а&#160;&#160;также&#160;&#160;способен&#160;</p>
+<p style="position:absolute;top:516px;left:96px;white-space:nowrap" class="ft51">выполнять&#160;функции&#160;протокола&#160;AH.&#160;</p>
+<p style="position:absolute;top:545px;left:149px;white-space:nowrap" class="ft50">IKE —&#160;протокол&#160;обмена&#160;ключами.&#160;</p>
+<p style="position:absolute;top:589px;left:96px;white-space:nowrap" class="ft52"><b>Криптографический&#160;протокол&#160;MTProto&#160;</b></p>
+<p style="position:absolute;top:641px;left:149px;white-space:nowrap" class="ft50">MTProto —&#160;криптографический&#160;протокол,&#160;&#160;используемый&#160;&#160;в&#160;&#160;системе&#160;</p>
+<p style="position:absolute;top:661px;left:96px;white-space:nowrap" class="ft54">обмена&#160;сообщениями&#160;Telegram&#160;для&#160;шифрования&#160;переписки&#160;пользователей.&#160;В&#160;<br/>основе&#160;&#160;протокола&#160;&#160;лежит&#160;&#160;оригинальная&#160;&#160;комбинация&#160;&#160;симметричного&#160;<br/>алгоритма&#160;шифрования&#160;AES&#160;(в&#160;режиме&#160;IGE),&#160;протокол&#160;Диффи-Хеллмана&#160;для&#160;<br/>обмена&#160;2048-битными&#160;RSA-ключами&#160;между&#160;двумя&#160;устройствами&#160;и&#160;ряд&#160;хеш-<br/>функций.&#160;&#160;Протокол&#160;&#160;допускает&#160;&#160;использование&#160;&#160;шифрования&#160;end-to-end&#160;с&#160;<br/>опциональной&#160;сверкой&#160;ключей.&#160;</p>
+<p style="position:absolute;top:811px;left:149px;white-space:nowrap" class="ft50">MTProto Proxy —&#160;протокол&#160;&#160;семейства&#160;MTProto,&#160;решает&#160;&#160;сразу&#160;</p>
+<p style="position:absolute;top:830px;left:96px;white-space:nowrap" class="ft51">несколько&#160;проблем:&#160;</p>
+<p style="position:absolute;top:859px;left:149px;white-space:nowrap" class="ft53"><b>-&#160;</b>для&#160;&#160;подключения&#160;&#160;вместо&#160;&#160;пары&#160;&#160;логин+пароль,&#160;&#160;достаточно&#160;&#160;только</p>
+<p style="position:absolute;top:879px;left:96px;white-space:nowrap" class="ft51">пароля;&#160;</p>
+<p style="position:absolute;top:907px;left:149px;white-space:nowrap" class="ft55"><b>-&#160;</b>трафик&#160;не&#160;отличается&#160;от&#160;обычного&#160;HTTPS/TLS;<br/><b>-&#160;</b>пароль&#160;не&#160;передается&#160;&#160;к&#160;серверу&#160;при&#160;подключении;<br/><b>-&#160;</b>трафик&#160;зашифрован;<br/><b>-&#160;</b>возможна&#160;работа&#160;через&#160;прокси&#160;только&#160;Telegram'a.<br/>Однако&#160;исследования&#160;показывают,&#160;что&#160;у&#160;Telegram&#160;были&#160;серьезные&#160;и,&#160;в</p>
+<p style="position:absolute;top:1023px;left:96px;white-space:nowrap" class="ft54">тоже&#160;время,&#160;простые&#160;проблемы&#160;в&#160;протоколе&#160;(например,&#160;модифицированный&#160;и&#160;<br/>уязвимый&#160;&#160;алгоритм&#160;&#160;обмена&#160;&#160;ключами&#160;&#160;по&#160;&#160;алгоритму&#160;&#160;Диффи-Хеллмана),&#160;<br/>которые&#160;может&#160;обнаружить&#160;любой&#160;знающий&#160;эксперт&#160;по&#160;безопасности.&#160;</p>
+<p style="position:absolute;top:1096px;left:149px;white-space:nowrap" class="ft51">При&#160;&#160;помощи&#160;&#160;командной&#160;&#160;строки&#160;&#160;возможно&#160;&#160;подключиться&#160;&#160;к&#160;&#160;некоторым&#160;</p>
+<p style="position:absolute;top:1120px;left:96px;white-space:nowrap" class="ft54">пользователям,&#160;&#160;и&#160;&#160;обнаружить&#160;&#160;интервалы&#160;&#160;общения.&#160;&#160;Это&#160;&#160;серьезная&#160;&#160;проблема,&#160;<br/>связанная&#160;с&#160;утечкой&#160;персональной&#160;информации&#160;[5].&#160;</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title></title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft60{font-size:18px;font-family:Times;color:#000000;}
+	.ft61{font-size:18px;font-family:Times;color:#000000;}
+	.ft62{font-size:19px;font-family:Times;color:#000000;}
+	.ft63{font-size:19px;font-family:Times;color:#000000;}
+	.ft64{font-size:16px;font-family:Times;color:#000000;}
+	.ft65{font-size:16px;font-family:Times;color:#000000;}
+	.ft66{font-size:19px;line-height:19px;font-family:Times;color:#000000;}
+	.ft67{font-size:19px;line-height:24px;font-family:Times;color:#000000;}
+	.ft68{font-size:16px;line-height:20px;font-family:Times;color:#000000;}
+	.ft69{font-size:16px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page6-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="images/target006.png" alt="background image"/>
+<p style="position:absolute;top:86px;left:96px;white-space:nowrap" class="ft60"><b>Выводы&#160;</b></p>
+<p style="position:absolute;top:134px;left:149px;white-space:nowrap" class="ft62">В&#160;&#160;рамках&#160;&#160;статьи&#160;&#160;были&#160;&#160;рассмотрены&#160;&#160;такие&#160;&#160;протоколы&#160;&#160;как: SSL, TLS,&#160;</p>
+<p style="position:absolute;top:162px;left:96px;white-space:nowrap" class="ft67">PPTP, IPsec, L2TP, MTProto.&#160;У&#160;&#160;каждого&#160;&#160;из&#160;&#160;протоколов&#160;&#160;есть&#160;&#160;свои&#160;&#160;плюсы&#160;&#160;и&#160;<br/>минусы.&#160;&#160;Ниже&#160;&#160;приведена&#160;&#160;таблица&#160;&#160;со&#160;&#160;сравнением&#160;&#160;протоколов&#160;&#160;по&#160;&#160;таким&#160;<br/>критериям:&#160;</p>
+<p style="position:absolute;top:206px;left:226px;white-space:nowrap" class="ft62">уровень&#160;</p>
+<p style="position:absolute;top:206px;left:327px;white-space:nowrap" class="ft62">модели&#160;OSI,&#160;криптографические&#160;</p>
+<p style="position:absolute;top:206px;left:695px;white-space:nowrap" class="ft62">алгоритмы,&#160;</p>
+<p style="position:absolute;top:231px;left:96px;white-space:nowrap" class="ft62">популярность.&#160;</p>
+<p style="position:absolute;top:279px;left:99px;white-space:nowrap" class="ft62">Таблица&#160;1.&#160;Сравнительный&#160;анализ&#160;протоколов&#160;с&#160;криптографической&#160;защитой&#160;</p>
+<p style="position:absolute;top:316px;left:266px;white-space:nowrap" class="ft64">Уровень&#160;OSI</p>
+<p style="position:absolute;top:317px;left:365px;white-space:nowrap" class="ft61"><b>&#160;</b></p>
+<p style="position:absolute;top:316px;left:403px;white-space:nowrap" class="ft64">Криптографические&#160;алгоритмы</p>
+<p style="position:absolute;top:317px;left:645px;white-space:nowrap" class="ft61"><b>&#160;</b></p>
+<p style="position:absolute;top:316px;left:667px;white-space:nowrap" class="ft64">Популярность&#160;</p>
+<p style="position:absolute;top:346px;left:96px;white-space:nowrap" class="ft65">SSL/TLS</p>
+<p style="position:absolute;top:344px;left:164px;white-space:nowrap" class="ft61"><b>&#160;</b></p>
+<p style="position:absolute;top:342px;left:266px;white-space:nowrap" class="ft68">Представления,&#160;<br/>сеансовый</p>
+<p style="position:absolute;top:364px;left:347px;white-space:nowrap" class="ft61"><b>&#160;</b></p>
+<p style="position:absolute;top:346px;left:403px;white-space:nowrap" class="ft68">AES, Diffie-Hellma, RSA, DSA,&#160;<br/>MD5, SHA, RC4, IDEA, Triple&#160;<br/>DES.</p>
+<p style="position:absolute;top:385px;left:441px;white-space:nowrap" class="ft61"><b>&#160;</b></p>
+<p style="position:absolute;top:342px;left:667px;white-space:nowrap" class="ft68">Самый&#160;<br/>популярный&#160;<br/>протокол&#160;</p>
+<p style="position:absolute;top:383px;left:770px;white-space:nowrap" class="ft64">для&#160;</p>
+<p style="position:absolute;top:404px;left:667px;white-space:nowrap" class="ft64">веб-ресурсов.&#160;</p>
+<p style="position:absolute;top:432px;left:96px;white-space:nowrap" class="ft65">PPTP</p>
+<p style="position:absolute;top:430px;left:137px;white-space:nowrap" class="ft61"><b>&#160;</b></p>
+<p style="position:absolute;top:429px;left:266px;white-space:nowrap" class="ft64">Сеансовый</p>
+<p style="position:absolute;top:430px;left:351px;white-space:nowrap" class="ft61"><b>&#160;</b></p>
+<p style="position:absolute;top:432px;left:403px;white-space:nowrap" class="ft65">DES, MD4, RC4.</p>
+<p style="position:absolute;top:429px;left:667px;white-space:nowrap" class="ft68">Не&#160;&#160;популярен,&#160;<br/>так&#160;</p>
+<p style="position:absolute;top:449px;left:722px;white-space:nowrap" class="ft64">как&#160;</p>
+<p style="position:absolute;top:449px;left:779px;white-space:nowrap" class="ft64">не&#160;</p>
+<p style="position:absolute;top:470px;left:667px;white-space:nowrap" class="ft68">является&#160;<br/>безопасным.</p>
+<p style="position:absolute;top:492px;left:763px;white-space:nowrap" class="ft61"><b>&#160;</b></p>
+<p style="position:absolute;top:520px;left:96px;white-space:nowrap" class="ft65">IPsec</p>
+<p style="position:absolute;top:518px;left:135px;white-space:nowrap" class="ft61"><b>&#160;</b></p>
+<p style="position:absolute;top:516px;left:266px;white-space:nowrap" class="ft64">Сетевой</p>
+<p style="position:absolute;top:518px;left:329px;white-space:nowrap" class="ft61"><b>&#160;</b></p>
+<p style="position:absolute;top:520px;left:403px;white-space:nowrap" class="ft65">AES, Triple DES, MD5, SHA.</p>
+<p style="position:absolute;top:516px;left:667px;white-space:nowrap" class="ft68">Самый&#160;<br/>популярный&#160;<br/>протокол&#160;</p>
+<p style="position:absolute;top:558px;left:770px;white-space:nowrap" class="ft64">для&#160;</p>
+<p style="position:absolute;top:582px;left:667px;white-space:nowrap" class="ft69">VPN&#160;<br/>туннелирования.</p>
+<p style="position:absolute;top:630px;left:96px;white-space:nowrap" class="ft65">L2TP</p>
+<p style="position:absolute;top:628px;left:137px;white-space:nowrap" class="ft61"><b>&#160;</b></p>
+<p style="position:absolute;top:626px;left:266px;white-space:nowrap" class="ft64">Сеансовый</p>
+<p style="position:absolute;top:628px;left:351px;white-space:nowrap" class="ft61"><b>&#160;</b></p>
+<p style="position:absolute;top:626px;left:403px;white-space:nowrap" class="ft64">Криптографической&#160;</p>
+<p style="position:absolute;top:626px;left:586px;white-space:nowrap" class="ft64">защитой&#160;</p>
+<p style="position:absolute;top:647px;left:403px;white-space:nowrap" class="ft64">занимается&#160;IPsec.</p>
+<p style="position:absolute;top:648px;left:537px;white-space:nowrap" class="ft61"><b>&#160;</b></p>
+<p style="position:absolute;top:626px;left:667px;white-space:nowrap" class="ft68">Используется&#160;&#160;&#160;&#160;в&#160;<br/>связке&#160;&#160;с&#160;IPsec&#160;<br/>зачастую&#160;</p>
+<p style="position:absolute;top:667px;left:770px;white-space:nowrap" class="ft64">для&#160;</p>
+<p style="position:absolute;top:692px;left:667px;white-space:nowrap" class="ft69">VPN&#160;<br/>туннелирования.</p>
+<p style="position:absolute;top:738px;left:96px;white-space:nowrap" class="ft65">MTProto&#160;</p>
+<p style="position:absolute;top:734px;left:266px;white-space:nowrap" class="ft64">Прикладной</p>
+<p style="position:absolute;top:736px;left:361px;white-space:nowrap" class="ft61"><b>&#160;</b></p>
+<p style="position:absolute;top:738px;left:403px;white-space:nowrap" class="ft65">AES, Diffie-Hellma, RSA.</p>
+<p style="position:absolute;top:734px;left:667px;white-space:nowrap" class="ft68">Используется&#160;<br/>только&#160;</p>
+<p style="position:absolute;top:755px;left:788px;white-space:nowrap" class="ft64">в&#160;</p>
+<p style="position:absolute;top:780px;left:667px;white-space:nowrap" class="ft65">Telegram.</p>
+<p style="position:absolute;top:778px;left:740px;white-space:nowrap" class="ft61"><b>&#160;</b></p>
+<p style="position:absolute;top:826px;left:149px;white-space:nowrap" class="ft62">В&#160;&#160;процессе&#160;&#160;изучения&#160;&#160;протоколов&#160;&#160;с&#160;&#160;криптографической&#160;&#160;защитой&#160;&#160;было&#160;</p>
+<p style="position:absolute;top:850px;left:96px;white-space:nowrap" class="ft67">принято&#160;&#160;решение&#160;&#160;спроектировать&#160;&#160;и&#160;&#160;реализовать&#160;&#160;свой&#160;&#160;протокол,&#160;<br/>использующий&#160;&#160;криптографическую&#160;&#160;защиту,&#160;&#160;в&#160;&#160;котором&#160;&#160;не&#160;&#160;будет&#160;&#160;явных&#160;<br/>недостатков,&#160;&#160;которые&#160;&#160;были&#160;&#160;описаны&#160;&#160;выше.&#160;&#160;В&#160;&#160;протоколе&#160;&#160;предполагается&#160;<br/>реализовать&#160;следующие&#160;возможности:&#160;</p>
+<p style="position:absolute;top:951px;left:149px;white-space:nowrap" class="ft61"><b>-</b></p>
+<p style="position:absolute;top:946px;left:167px;white-space:nowrap" class="ft62">будут&#160;использоваться&#160;только&#160;определённые&#160;методы&#160;шифрования,&#160;как</p>
+<p style="position:absolute;top:970px;left:96px;white-space:nowrap" class="ft62">симметричные,&#160;так&#160;и&#160;ассиметричные;&#160;</p>
+<p style="position:absolute;top:999px;left:149px;white-space:nowrap" class="ft61"><b>-</b></p>
+<p style="position:absolute;top:995px;left:166px;white-space:nowrap" class="ft62">хеш&#160;сообщения&#160;будет&#160;получен&#160;через&#160;SHA384;</p>
+<p style="position:absolute;top:1023px;left:149px;white-space:nowrap" class="ft61"><b>-</b></p>
+<p style="position:absolute;top:1019px;left:166px;white-space:nowrap" class="ft62">смена&#160;ключей&#160;во&#160;время&#160;сессии;</p>
+<p style="position:absolute;top:1047px;left:149px;white-space:nowrap" class="ft61"><b>-</b></p>
+<p style="position:absolute;top:1043px;left:166px;white-space:nowrap" class="ft62">более&#160;частое&#160;обновление&#160;сертификатов;</p>
+<p style="position:absolute;top:1071px;left:149px;white-space:nowrap" class="ft63">-&#160;использование&#160;&#160;для&#160;&#160;прикладных&#160;&#160;протоколов&#160;&#160;обмена&#160;&#160;информацией,&#160;&#160;в</p>
+<p style="position:absolute;top:1091px;left:96px;white-space:nowrap" class="ft62">том&#160;числе,&#160;разработанных&#160;для&#160;новых&#160;клиент-серверных&#160;приложений.&#160;</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title></title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft70{font-size:18px;font-family:Times;color:#000000;}
+	.ft71{font-size:18px;font-family:Times;color:#000000;}
+	.ft72{font-size:19px;font-family:Times;color:#000000;}
+	.ft73{font-size:19px;font-family:Times;color:#000000;}
+	.ft74{font-size:27px;font-family:Times;color:#000000;}
+	.ft75{font-size:16px;font-family:Times;color:#000000;}
+	.ft76{font-size:16px;font-family:Times;color:#000000;}
+	.ft77{font-size:16px;font-family:Times;color:#000000;}
+	.ft78{font-size:16px;font-family:Times;color:#212121;}
+	.ft79{font-size:16px;font-family:Times;color:#212121;}
+	.ft710{font-size:16px;font-family:Times;color:#000000;}
+	.ft711{font-size:16px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page7-div" style="position:relative;width:892px;height:1263px;">
+<img width="892" height="1263" src="images/target001.png" alt="background image"/>
+<p style="position:absolute;top:86px;left:96px;white-space:nowrap" class="ft70"><b>Литература&#160;</b></p>
+<p style="position:absolute;top:138px;left:149px;white-space:nowrap" class="ft72">1.&#160;Springer-Verlag New York. Encyclopedia of Cryptography and Security,</p>
+<p style="position:absolute;top:162px;left:96px;white-space:nowrap" class="ft72">2005. &#160;– &#160;684&#160;с.&#160;</p>
+<p style="position:absolute;top:187px;left:149px;white-space:nowrap" class="ft72">2.</p>
+<p style="position:absolute;top:182px;left:202px;white-space:nowrap" class="ft73">Саймон&#160;&#160;Сингх.&#160;&#160;Книга&#160;&#160;шифров.&#160;&#160;Тайная&#160;&#160;история&#160;&#160;шифров&#160;&#160;и&#160;&#160;их</p>
+<p style="position:absolute;top:206px;left:96px;white-space:nowrap" class="ft73">расшифровки, 2000. &#160;– &#160;416&#160;с.&#160;</p>
+<p style="position:absolute;top:235px;left:149px;white-space:nowrap" class="ft72">3.</p>
+<p style="position:absolute;top:235px;left:212px;white-space:nowrap" class="ft72">https://searchinform.ru/services/outsource-ib/zaschita-informatsii/pri-</p>
+<p style="position:absolute;top:259px;left:96px;white-space:nowrap" class="ft72">peredache-dannykh/</p>
+<p style="position:absolute;top:253px;left:266px;white-space:nowrap" class="ft74">&#160;</p>
+<p style="position:absolute;top:255px;left:301px;white-space:nowrap" class="ft73">Сайт:&#160;</p>
+<p style="position:absolute;top:255px;left:384px;white-space:nowrap" class="ft73">Элект.&#160;</p>
+<p style="position:absolute;top:255px;left:475px;white-space:nowrap" class="ft73">информ. –&#160;Режим&#160;</p>
+<p style="position:absolute;top:255px;left:721px;white-space:nowrap" class="ft73">доступа:&#160;</p>
+<p style="position:absolute;top:283px;left:96px;white-space:nowrap" class="ft72">https://searchinform.ru/. –&#160;Заглавие&#160;с&#160;экрана&#160;</p>
+<p style="position:absolute;top:307px;left:149px;white-space:nowrap" class="ft72">4.&#160;https://mega-obzor.ru/setevoy-protokol-bezopasnosti.html&#160;&#160;Сайт:&#160;&#160;Элект.</p>
+<p style="position:absolute;top:327px;left:96px;white-space:nowrap" class="ft73">информ. –&#160;Режим&#160;доступа: https://mega-obzor.ru/. –&#160;Заглавие&#160;с&#160;экрана&#160;</p>
+<p style="position:absolute;top:356px;left:149px;white-space:nowrap" class="ft72">5.&#160;https://www.securitylab.ru/analytics/526171.php&#160;Сайт:&#160;Элект.&#160;информ. –</p>
+<p style="position:absolute;top:375px;left:96px;white-space:nowrap" class="ft73">Режим&#160;доступа: https://www.securitylab.ru. –&#160;Заглавие&#160;с&#160;экрана&#160;</p>
+<p style="position:absolute;top:448px;left:149px;white-space:nowrap" class="ft711"><i><b>Бондаренко&#160;&#160;В.В.,&#160;&#160;Чернышова&#160;&#160;А.В.&#160;&#160;Обзор&#160;&#160;протоколов&#160;&#160;передачи&#160;&#160;данных,&#160;<br/>использующих&#160;</b></i></p>
+<p style="position:absolute;top:469px;left:291px;white-space:nowrap" class="ft75"><i><b>криптографическую&#160;</b></i></p>
+<p style="position:absolute;top:469px;left:481px;white-space:nowrap" class="ft75"><i><b>защиту.&#160;</b></i></p>
+<p style="position:absolute;top:469px;left:574px;white-space:nowrap" class="ft77"><i>Статья</i></p>
+<p style="position:absolute;top:466px;left:637px;white-space:nowrap" class="ft77"><i>&#160;&#160;посвящена&#160;</i></p>
+<p style="position:absolute;top:489px;left:149px;white-space:nowrap" class="ft77"><i>актуальной</i></p>
+<p style="position:absolute;top:487px;left:239px;white-space:nowrap" class="ft77"><i>&#160;проблеме&#160;современного&#160;мира&#160;—&#160;защите&#160;информации.&#160;В&#160;работе&#160;</i></p>
+<p style="position:absolute;top:510px;left:149px;white-space:nowrap" class="ft77"><i>рассматриваются</i></p>
+<p style="position:absolute;top:508px;left:293px;white-space:nowrap" class="ft77"><i>&#160;особенности&#160;различных&#160;систем&#160;защиты&#160;информации&#160;на&#160;</i></p>
+<p style="position:absolute;top:531px;left:149px;white-space:nowrap" class="ft77"><i>уровне</i></p>
+<p style="position:absolute;top:528px;left:200px;white-space:nowrap" class="ft77"><i>&#160;&#160;протоколов&#160;&#160;и&#160;&#160;выявлены&#160;&#160;их&#160;&#160;недостатки.&#160;&#160;Выделены&#160;&#160;основные&#160;</i></p>
+<p style="position:absolute;top:551px;left:149px;white-space:nowrap" class="ft77"><i>функциональные</i></p>
+<p style="position:absolute;top:549px;left:277px;white-space:nowrap" class="ft77"><i>&#160;&#160;требования&#160;&#160;к&#160;&#160;собственному&#160;&#160;разрабатываемому&#160;</i></p>
+<p style="position:absolute;top:572px;left:149px;white-space:nowrap" class="ft77"><i>протоколу</i></p>
+<p style="position:absolute;top:570px;left:231px;white-space:nowrap" class="ft77"><i>,&#160;использующего&#160;криптографическую&#160;защиту.&#160;</i></p>
+<p style="position:absolute;top:614px;left:149px;white-space:nowrap" class="ft75"><i><b>Ключевые&#160;&#160;слова:&#160;&#160;</b>протокол</i></p>
+<p style="position:absolute;top:611px;left:375px;white-space:nowrap" class="ft77"><i>,&#160;&#160;криптографическая&#160;&#160;защита,&#160;&#160;безопасность,&#160;</i></p>
+<p style="position:absolute;top:634px;left:149px;white-space:nowrap" class="ft77"><i>персональные</i></p>
+<p style="position:absolute;top:632px;left:255px;white-space:nowrap" class="ft77"><i>&#160;данные,&#160;утечки.<b>&#160;</b></i></p>
+<p style="position:absolute;top:679px;left:149px;white-space:nowrap" class="ft711"><i><b>Bondarenko V.V., Chernyshova A.V. Overview&#160;of data transfer protocols using&#160;<br/>cryptographic protection.&#160;</b></i></p>
+<p style="position:absolute;top:694px;left:349px;white-space:nowrap" class="ft77"><i>The&#160;&#160;article&#160;&#160;is&#160;&#160;devoted&#160;&#160;to&#160;&#160;an&#160;&#160;urgent&#160;&#160;problem&#160;&#160;of&#160;&#160;the&#160;</i></p>
+<p style="position:absolute;top:715px;left:149px;white-space:nowrap" class="ft77"><i>modern&#160;world&#160;-&#160;the&#160;protection&#160;of&#160;information.&#160;The&#160;paper&#160;examines&#160;the&#160;features&#160;of&#160;</i></p>
+<p style="position:absolute;top:735px;left:149px;white-space:nowrap" class="ft77"><i>various&#160;&#160;information&#160;&#160;security&#160;&#160;systems&#160;&#160;at&#160;&#160;the&#160;&#160;protocol&#160;&#160;level&#160;&#160;and&#160;&#160;identifies&#160;&#160;their&#160;</i></p>
+<p style="position:absolute;top:756px;left:149px;white-space:nowrap" class="ft77"><i>shortcomings.&#160;&#160;The&#160;&#160;main&#160;&#160;functional&#160;&#160;requirements&#160;&#160;for&#160;&#160;the&#160;&#160;proprietary&#160;&#160;protocol&#160;</i></p>
+<p style="position:absolute;top:777px;left:149px;white-space:nowrap" class="ft77"><i>being developed using cryptographic&#160;protection&#160;are&#160;highlighted.&#160;</i></p>
+<p style="position:absolute;top:824px;left:149px;white-space:nowrap" class="ft78"><i><b>Keywords:&#160;</b></i></p>
+<p style="position:absolute;top:818px;left:231px;white-space:nowrap" class="ft79"><i>protocol,&#160;cryptographic&#160;protection, security, personal data, leaks</i></p>
+<p style="position:absolute;top:824px;left:702px;white-space:nowrap" class="ft710">&#160;</p>
+</div>
+</body>
+</html>
